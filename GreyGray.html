@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{block:PermalinkPage}{block:Posts}{block:PostSummary}{PostSummary} - {/block:PostSummary}{/block:Posts}{block:PermalinkPage}{Title}</title>
+		{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+		<link rel="shortcut icon" href="{Favicon}">
+		<link rel="apple-touch-icon" href="{PortraitURL-128}">
+		<meta name="color:Page Background" content="#dddddd">
+		<meta name="color:Posts Background" content="#eeeeee">
+		<meta name="color:Posts Inset Shadow" content="#f8f8f8">
+		<meta name="color:Posts Border" content="#cccccc">
+		<meta name="color:Text Font" content="#000000">
+		<meta name="color:Links Font" content="#000000">
+		<meta name="color:Posts Meta Font" content="#999999">
+		<meta name="if:Show Tags" content="1">
+		<meta name="if:Show Notes" content="0">
+		<meta name="text:Page Background Image" content="http://static.tumblr.com/2bik29s/yoemmck0a/untitled-1.png">
+		<meta name="text:Font Size" content="16">
+		<link rel="alternate" type="application/rss+xml" href="{RSS}">
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
+		<style type="text/css" media="all">
+			/* If you modify this theme (which I encourage you
+			to do, as working with code is quite enjoyable),
+			please leave the following note intact. Thanks!
+
+			  ____________________________________
+			/*                                    \
+			|  GreyGray Tumblr Theme              |
+			|  http://greygraytheme.tumblr.com    |
+			|  by Noah Doersing                   |
+			|  http://neondust.tumblr.com         |
+			|  http://hejnoah.com                 |
+			\____________________________________*/
+
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 1em;
+				font-weight: 400;
+				border: 0;
+			}
+
+			body {
+				font-size: {text:Font Size}px;
+				font-family: 'Roboto Slab', serif;
+				background-color: {color:Page Background};
+				background-image: url({text:Page Background Image});
+				line-height: 1.4em;
+				color: {color:Text Font};
+			}
+
+			header, article, footer {
+				width: 500px;
+				margin: auto;
+				padding: 100px 200px;
+			}
+
+			header h1 a {
+				text-transform: uppercase;
+				font-weight: 300;
+				font-size: 2.2em;
+				margin-bottom: 25px;
+				display: block;
+				text-decoration: none;
+				color: {color:Text Font};
+			}
+
+			header,
+			footer ul,
+			aside {
+				text-align: center;
+			}
+
+			header li,
+			footer li,
+			aside li {
+				display: inline-block;
+				list-style-type: none;
+			}
+
+			header li:after,
+			footer li:after {
+				content: "\00a0\00a0\2014\00a0";
+			}
+
+			header li:last-child:after,
+			footer li:last-child:after {
+				content: none;
+			}
+
+			article {
+				background-color: {color:Posts Background};
+				border: 1px solid {color:Posts Border};
+				border-top-width: 5px;
+				-webkit-box-shadow: inset 0 0 100px {color:Posts Inset Shadow};
+				-moz-box-shadow: inset 0 0 100px {color:Posts Inset Shadow};
+				-o-box-shadow: inset 0 0 100px {color:Posts Inset Shadow};
+				box-shadow: inset 0 0 100px {color:Posts Inset Shadow};
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				margin-bottom: 50px;
+			}
+
+			article h2,
+			.quote blockquote:first-child {
+				font-size: 1.5em;
+				margin-bottom: .66em;
+				line-height: 1.2em;
+			}
+
+			article h3 {
+				font-weight: bold;
+				margin-bottom: 1em;
+			}
+
+			article p {
+				margin-bottom: 1em;
+			}
+
+			.lead {
+				width: 900px;
+				margin-left: -200px;
+				margin: 2em 0 2em -200px;
+			}
+
+			.photo .lead:first-child {
+				margin-top: -104px;
+				border-top-left-radius: 9px;
+				border-top-right-radius: 9px;
+			}
+
+			.link h2,
+			.answer h2 {
+				font-size: 1.25em;
+			}
+
+			.photo .lead:first-child,
+			iframe.photoset,
+			.quote blockquote:first-child,
+			.video iframe:first-child,
+			.audio iframe:first-child {
+				margin-bottom: 50px;
+			}
+
+			.chat p em:first-child,
+			.answer h2 em {
+				padding-right: .15em;
+			}
+
+			article ul,
+			article ol {
+				margin-bottom: 1em;
+			}
+
+			article ul li {
+				list-style-type: square;
+			}
+
+			article ul li,
+			article ol li {
+				margin-left: 30px;
+			}
+
+			aside p,
+			aside ul,
+			aside .notes {
+				padding-top: 50px;
+				color: {color:Posts Meta Font};
+				margin: 0;
+			}
+
+			aside ul li,
+			aside ol li {
+				margin: 0;
+			}
+
+			aside .notes li {
+				display: block;
+			}
+
+			.avatar_frame {
+				display: none;
+			}
+
+			aside a {
+				color: {color:Posts Meta Font};
+			}
+
+			footer {
+				padding-top: 50px;
+				padding-bottom: 100px;
+			}
+
+			blockquote {
+				padding-left: 1em;
+				border-left: 2px solid {color:Posts Meta Font};
+			}
+
+			.quote blockquote:first-child {
+				padding-left: 0;
+				border: 0;
+				font-size: 2em;
+				line-height: 1.2em;
+				text-align: center;
+			}
+
+			aside blockquote,
+			.more_notes_link {
+				padding: 0;
+				border: 0;
+				font-style: italic;
+			}
+
+			a {
+				color: {color:Links Font};
+			}
+
+			a:hover {
+				text-decoration: none;
+			}
+
+			{CustomCSS}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/">{Title}</a></h1>
+			<nav>
+				<ul>
+					{block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
+					{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
+					{block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+				</ul>
+			</nav>
+		</header>
+		<section>
+			{block:Posts}<article class="{PostType} {PostID}{block:HasTags}{block:Tags} tag-{URLSafeTag}{/block:Tags}{/block:HasTags}">
+				{block:Text}{block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+				{Body}{/block:Text}
+
+				{block:Photo}{LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="lead" />{LinkCloseTag}
+				{block:Caption}{Caption}{/block:Caption}{/block:Photo}
+
+				{block:Photoset}{Photoset-500}
+				{block:Caption}{Caption}{/block:Caption}{/block:Photoset}
+
+				{block:Quote}<blockquote>{Quote}</blockquote>
+				{block:Source}{Source}{/block:Source}{/block:Quote}
+
+				{block:Link}<h2><a href="{URL}" {Target}>{Name}</a> &rarr;</h2>
+				{block:Description}{Description}{/block:Description}{/block:Link}
+
+				{block:Chat}{block:Title}<h2><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+				{block:Lines}<p>{block:Label}<em>{Label}</em>{/block:Label} {Line}</p>{/block:Lines}{/block:Chat}
+
+				{block:Audio}{block:AudioEmbed}{AudioEmbed-500}{/block:AudioEmbed}
+				{block:Caption}{Caption}{/block:Caption}{/block:Audio}
+
+				{block:Video}{Video-500}
+				{block:Caption}{Caption}{/block:Caption}{/block:Video}
+
+				{block:Answer}<h2><em>{Asker}:</em> {Question}</h2>
+				{Answer}{/block:Answer}
+
+				{block:Date}<aside>
+					<p><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">{lang:TimeAgo with NoteCount notes}</a></p>
+					{block:PermalinkPage}{block:IfShowTags}{block:HasTags}<ul>{block:Tags}<li><a href="{TagURL}">#{Tag}</a></li>
+					{/block:Tags}</ul>{/block:HasTags}{/block:IfShowTags}
+					{block:IfShowNotes}{PostNotes-16}{/block:IfShowNotes}{/block:PermalinkPage}
+				</aside>{/block:Date}
+			</article>{/block:Posts}
+		</section>
+		<footer>
+			<ul>
+				{block:PreviousPage}<li>&larr; <a href="{PreviousPage}">{lang:Newer}</a></li>{/block:PreviousPage}
+				{block:NextPage}<li><a href="{NextPage}">{lang:Older}</a> &rarr;</li>{/block:NextPage}
+			</ul>
+		</footer>
+	</body>
+</html>

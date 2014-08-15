@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>{block:PermalinkPage}{block:Posts}{block:PostSummary}{PostSummary} - {/block:PostSummary}{/block:Posts}{block:PermalinkPage}{Title}</title>
+        <meta name="description" content="{MetaDescription}" />
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <meta name="color:Text" content="#000" />
+        <meta name="color:Links" content="#f60" />
+        <meta name="color:Date & Notes" content="#444" />
+        <meta name="color:Background" content="#f8f8f8" />
+        <meta name="color:Post Mouseover Background" content="#fefefe" />
+        <meta name="color:Post Borders" content="#bbb" />
+        <meta name="color:Other Borders" content="#ccc" />
+        <meta name="if:Infinite Scrolling" content="0"/>
+        <meta name="if:Sidebar Always Visible" content="0"/>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+		<style type='text/css'>
+            /* If you modify this theme (which I encourage you
+               to do, as working with code is quite enjoyable),
+               please leave the following note intact. Thanks!
+
+              ____________________________________
+            /*                                    \
+            |  Guillemets Tumblr Theme            |
+            |  http://guillemetstheme.tumblr.com  |
+            |  by Noah Doersing                   |
+            |  http://noahdoersing.tumblr.com     |
+            \____________________________________*/
+
+
+
+            * {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: "Open Sans", Helvetica, Arial, sans-serif;
+				font-size: 17px;
+				background: {color:Background};
+				background-size: 50%;
+				color: {color:Text};
+			}
+			p, li, img, h1, h2, h3, h4, h5, h6, embed, iframe {
+				padding: 10px 0;
+			}
+			iframe#tumblr_controls {
+				padding: 0;
+			}
+            article h1 {
+                padding-top: 0;
+            }
+			article {
+				padding: 40px 50px;
+				width: 500px;
+				border-bottom: 1px solid {color:Post Borders};
+				border-right: 1px solid {color:Post Borders};
+				text-align: justify;
+                display: block;
+			}
+			article:hover {
+				background-color: {color:Post Mouseover Background};
+			}
+            p.question:first-letter {
+                text-transform: uppercase;
+            }
+			p.meta {
+				display: none;
+				padding: 0;
+			}
+			article:hover p.meta {
+				display: block;
+				width: 100px;
+				margin-left: 530px;
+				margin-top: 10px;
+				margin-bottom: -10px;
+				height: 0;
+				overflow: visible;
+			}
+			img {
+				max-width: 500px;
+                border: 0;
+			}
+			article.highres img:first-child {
+				margin: -50px 0 0 -50px;
+				max-width: 600px;
+			}
+			a {
+				color: {color:Links};
+			}
+			a:hover {
+				text-decoration: none;
+			}
+			li {
+				margin-left: 35px;
+			}
+			ul li {
+				list-style-type: square;
+			}
+			blockquote {
+				margin-left: 20px;
+				padding-left: 20px;
+				border-left: 1px solid {color:Other Borders};
+			}
+			h1, h2, h3, h4, h5, h6 {
+				text-align: left;
+			}
+			p.meta a, a.orange {
+				text-decoration: none;
+			}
+			aside {
+				margin-top: 50px;
+				padding-top: 50px;
+				border-top: 1px solid {color:Post Borders};
+				font-size: .8em;
+				color: {color:color:Date & Notes};
+				text-transform: uppercase;
+                display: block;
+                text-align: left;
+			}
+			aside ol {
+				margin-top: 30px;
+				margin-bottom: 10px;
+			}
+			aside li, ul.chat li {
+				list-style-type: none;
+				padding: 5px 0;
+				border-bottom: 1px solid {color:Other Borders};
+				margin: 0;
+			}
+			aside li:first-child {
+				border-top: 1px solid {color:Other Borders};
+			}
+			ul.chat {
+				padding: 10px 0;
+			}
+			ul.chat li:last-child {
+				border-bottom: 0;
+			}
+			aside p {
+				padding: 0;
+			}
+			aside p.tags {
+				padding-bottom: 10px;
+			}
+    		aside p.tags span {
+				opacity: .6;
+				color: {color:Links};
+			}
+			aside a {
+				text-decoration: none;
+			}
+			aside img {
+				display: none;
+			}
+			aside blockquote {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+			{block:IfNotSidebarAlwaysVisible}.menubutton {
+				position: fixed;
+				font-size: 2em;
+				right: 0;
+				font-weight: bold;
+				margin: 40px 62px auto auto;
+				cursor: pointer;
+				z-index: 100;
+			}
+			.two {
+				display: none;
+			}{/block:IfNotSidebarAlwaysVisible}
+			.menu-outer {
+				position: relative;
+				overflow: hidden;
+			}
+			.menu-inner {
+				position: fixed;
+                {block:IfSidebarAlwaysVisible}right: 0px;{/block:IfSidebarAlwaysVisible}
+				{block:IfNotSidebarAlwaysVisible}right: -293px;{/block:IfNotSidebarAlwaysVisible}
+				width: 200px;
+				{block:IfNotSidebarAlwaysVisible}padding: 37px 93px 0 0;{/block:IfNotSidebarAlwaysVisible}
+                {block:IfSidebarAlwaysVisible}padding: 37px 62px 0 0;{/block:IfSidebarAlwaysVisible}
+				font-size: 1em;
+				height: 100%;
+				text-align: right;
+				background-color: {color:Background};
+			}
+			.menu-inner h1 {
+				text-align: right;
+                font-size: 1.5em;
+			}
+			.menu ul {
+				padding: 10px 0;
+			}
+			.menu li {
+				list-style-type: none;
+				padding: 0;
+			}
+			.menu-inner a, .pagination a {
+				text-decoration: none;
+			}
+			aside a:hover, nav a:hover, .pagination a:hover, a.orange:hover, .meta a:hover {
+				text-decoration: underline;
+			}
+            h1 a, h1 a:hover {
+    			text-decoration: none;
+				color: {color:Text};
+			}
+			.pagination {
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				margin: auto 62px 40px auto;
+				z-index: 101;
+			}
+            {CustomCSS}
+		</style>
+        {block:IfInfiniteScrolling}<script src="http://static.tumblr.com/q0etgkr/lPHlj76n8/infinitescrollingbycodysherman.js"></script>{/block:IfInfiniteScrolling}
+        {block:IfNotSidebarAlwaysVisible}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('.menubutton').click(function() {
+					var $righty = $(this).next();
+					$righty.animate({
+						right: parseInt($righty.css('right'),10) == 0 ?
+						-$righty.outerWidth() :
+						0
+					});
+					$(".menubutton span").toggle();
+				});
+			});
+		</script>
+        {/block:IfNotSidebarAlwaysVisible}
+	</head>
+	<body>
+		<nav class="menu-outer">{block:IfNotSidebarAlwaysVisible}
+			<div class="menubutton">
+				<span class="one">&laquo;</span>
+				<span class="two">&raquo;</span>
+			</div>{/block:IfNotSidebarAlwaysVisible}
+			<div class="menu-inner">
+				<h1><a href="/">{Title}</a></h1>
+				<p>{Description}</p>
+				<ul class="menu">
+					<li><a href="/archive">Archive</a></li>
+					{block:AskEnabled}
+                        <li><a href="/ask">{AskLabel}</a></li>
+                    {/block:AskEnabled}
+					{block:SubmissionsEnabled}
+                        <li><a href="/submit">{SubmitLabel}</a></li>
+                    {/block:SubmissionsEnabled}
+					{block:HasPages}
+                        {block:Pages}
+                           <li><a href="{URL}">{Label}</a></li>
+                        {/block:Pages}
+                    {/block:HasPages}
+				</ul>
+			</div>
+		</nav>
+        {block:IfNotInfiniteScrolling}{block:Pagination}
+        <div class="pagination">
+            <p>
+            {block:PreviousPage}
+                <a href="{PreviousPage}">&laquo;</a>
+            {/block:PreviousPage}
+            {block:JumpPagination length="5"}
+                {block:CurrentPage}
+                    &nbsp;<strong><a class="current_page" href="{URL}">{PageNumber}</a></strong>
+                {/block:CurrentPage}
+                {block:JumpPage}
+                    &nbsp;<a class="jump_page" href="{URL}">{PageNumber}</a>
+                {/block:JumpPage}
+            {/block:JumpPagination}
+            {block:NextPage}
+                &nbsp;<a href="{NextPage}">&raquo;</a>
+            {/block:NextPage}
+            </p>
+        </div>
+        {/block:Pagination}{/block:IfNotInfiniteScrolling}
+        {block:Posts}
+		<article class="post {PostType}{block:Photo}{block:HighRes} highres{/block:HighRes}{/block:Photo}">
+        {block:Text}
+			{block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+			{Body}
+        {/block:Text}
+		{block:Photo}
+            {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
+			{block:Caption}{Caption}{/block:Caption}
+        {/block:Photo}
+        {block:Photoset}
+			{Photoset-500}
+			{block:Caption}{Caption}{/block:Caption}
+        {/block:Photoset}
+        {block:Quote}
+			<h1><a href="{Permalink}">&raquo; {Quote} &laquo;</a></h1>
+			{block:Source}{Source}{/block:Source}
+        {/block:Quote}
+        {block:Link}
+			<p><strong><a href="{URL}" class="orange" {Target}>&raquo; {Name}</a></strong></p>
+            {block:Description}{Description}{/block:Description}
+        {/block:Link}
+        {block:Chat}
+			{block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+			<ul class="chat">
+				{block:Lines}<li>{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</li>{/block:Lines}
+			</ul>
+        {/block:Chat}
+        {block:Audio}
+            {block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
+			{block:Caption}{Caption}{/block:Caption}
+        {/block:Audio}
+        {block:Video}
+    		{Video-500}
+			{block:Caption}{Caption}{/block:Caption}
+        {/block:Video}
+        {block:Answer}
+    		<p class="question"><strong>{Asker}: {Question}</strong></p>
+			{Answer}
+        {/block:Answer}
+            {block:IndexPage}<p class="meta"><a href="{Permalink}">&raquo;</a></p>{/block:IndexPage}
+            {block:PermalinkPage}{block:Date}
+			<aside>
+				<p>{block:Date}{TimeAgo} {/block:Date}{block:NoteCount}&middot; {NoteCountWithLabel}{/block:NoteCount}</p>
+				{block:HasTags}
+					<p class="tags">{block:Tags}<span>#</span><a href="{TagURL}">{Tag}</a> {/block:Tags}
+				{/block:HasTags}
+				{block:PostNotes}{PostNotes}{/block:PostNotes}
+			</aside>
+            {/block:Date}{/block:PermalinkPage}
+		</article>
+        {/block:Posts}
+	</body>
+</html>
