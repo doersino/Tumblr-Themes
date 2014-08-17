@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>
+		{block:PostSummary}
+			{PostSummary} -
+		{/block:PostSummary}
+		{Title}
+	</title>
+	{block:Description}
+		<meta name="description" content="{MetaDescription}" />
+	{/block:Description}
+	<link rel="shortcut icon" href="{Favicon}">
+	<link rel="apple-touch-icon" href="{PortraitURL-128}">
+	<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+	<!-- theme options -->
+	<meta name="color:Background Color" content="#ffffff">
+	<meta name="image:Background Image" content="">
+	<meta name="if:Tiled Background Image" content="0">
+
+	<meta name="color:Blog Title Color" content="#000000">
+	<meta name="color:Text Color" content="#000000">
+	<meta name="color:Link Color" content="#000000">
+	<meta name="color:Meta Text Color" content="#808080">
+
+	<meta name="color:Search Bar And Horizontal Line Between Posts Color" content="#dddddd">
+
+	<meta name="color:Blockquote Border Color" content="#dddddd">
+	<meta name="color:Blockquote Inside Blockquote Border Color" content="#bbbbbb">
+	<meta name="color:Blockquote Level 3 Border Color" content="#888888">
+	<meta name="color:Blockquote Level 4 Border Color" content="#444444">
+	<meta name="color:Blockquote Level 5 Border Color" content="#000000">
+
+	<meta name="color:Odd Chat Lines Color" content="#e8e8e8">
+	<meta name="color:Even Chat Lines Color" content="#f8f8f8">
+
+	<meta name="if:Infinite Scrolling" content="1">
+	<meta name="if:Wide Content Column" content="1">
+
+	<meta name="if:Show Avatar" content="1">
+	<meta name="if:Show Search Bar" content="1">
+	<meta name="if:Show Random Link" content="1">
+	<meta name="if:Show Archive Link" content="1">
+	<meta name="if:Show Author On Permalink Pages" content="0">
+	<meta name="if:Show Notes" content="1">
+
+	<meta name="if:Show Theme Credit In Sidebar" content="0">
+
+	<meta name="text:Disqus Shortname" content="">
+	<meta name="text:Google Analytics ID" content="">
+
+	{block:IfInfiniteScrolling}
+		<script src="http://codysherman.com/tools/infinite-scrolling/code"></script>
+	{/block:IfInfiniteScrolling}
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300">
+	<style type="text/css">
+	/*
+
+	Minimax Tumblr Theme by Noah Doersing
+	https://www.tumblr.com/themes/by/noahdoersing
+	You may use, modify or share this theme in accordance with the following
+	license (TL;DR: don't sue me or claim that you've made this theme):
+
+	The MIT License (MIT)
+
+	Copyright (c) 2014 Noah Doersing
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+
+	*/
+
+	/* GENERAL */
+	* {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		box-sizing: border-box;
+	}
+	html {
+		font-size: 14px;
+	}
+	body {
+		font-family: "Open Sans", Helvetica, Arial, sans-serif;
+		{block:IfTiledBackgroundImage}
+			background-color: {color:Background Color};
+			background-image: url("{image:Background Image}");
+		{/block:IfTiledBackgroundImage}
+		{block:IfNotTiledBackgroundImage}
+			background: {color:Background Color} url("{image:Background Image}") no-repeat center center fixed;
+			background-size: cover;
+		{/block:IfNotTiledBackgroundImage}
+		color: {color:Text Color};
+	}
+	a img {
+		border: 0;
+	}
+
+	/* SIDEBAR */
+	aside {
+		position: fixed;
+		top: 3.9rem;
+		left: 4rem;
+		width: 15rem;
+	}
+	aside > * {
+		margin-bottom: 2rem;
+	}
+	aside h1 {
+		font-weight: 300;
+		font-size: 1.5rem;
+	}
+	aside h1 a {
+		color: {color:Blog Title Color} !important;
+	}
+	aside h1 img {
+		height: 1.2rem;
+		padding-right: .4rem;
+	}
+	aside p {
+		font-weight: 300;
+		color: {color:Meta Text Color};
+		margin-top: 1rem;
+	}
+	aside a {
+		color: {color:Link Color};
+		text-decoration: none;
+	}
+	aside a:hover {
+		text-decoration: underline;
+	}
+	aside input {
+		background-color: transparent;
+		border: 1px solid {color:Search Bar And Horizontal Line Between Posts Color};
+		padding: .25rem;
+		width: 75%;
+		font-family: inherit;
+		font-size: .75rem;
+	}
+	aside input[type="submit"] {
+		display: none;
+	}
+	aside nav.pagination ol li,
+	aside nav.permalink-pagination ol li,
+	aside nav.day-pagination ol li {
+		display: inline;
+	}
+	aside nav.permalink-pagination ol li::after,
+	aside nav.day-pagination ol li::after {
+		content: " \b7 ";
+	}
+	aside nav.permalink-pagination ol li:last-child::after,
+	aside nav.day-pagination ol li:last-child::after {
+		content: "";
+	}
+
+	/* ARTICLES */
+	section {
+		margin: 1rem 4rem 0 23rem;
+		{block:IfWideContentColumn}
+			max-width: 700px;
+		{/block:IfWideContentColumn}
+		{block:IfNotWideContentColumn}
+			max-width: 500px;
+		{/block:IfNotWideContentColumn}
+
+	}
+	{block:IfWideContentColumn}
+		@media (min-width: 1344px) { /* calc(700px + (2 * 23rem)) with 1rem = 14px */
+			section {
+				margin-right: auto;
+				margin-left: auto;
+			}
+		}
+	{/block:IfWideContentColumn}
+	{block:IfNotWideContentColumn}
+		@media (min-width: 1144px) { /* calc(400px + (2 * 23rem)) with 1rem = 14px */
+			section {
+				margin-right: auto;
+				margin-left: auto;
+			}
+		}
+	{/block:IfNotWideContentColumn}
+	section > h2 {
+		padding: 3rem 0;
+		border-bottom: 1px solid {color:Search Bar And Horizontal Line Between Posts Color};
+		font-weight: 300;
+		font-size: 1.5rem;
+		line-height: 1.333em;
+	}
+	section > h2 span.tag::before,
+	section > h2 span.tag::after,
+	section > h2 span.search_query::before,
+	section > h2 span.search_query::after {
+		content: "\"";
+	}
+	article {
+		padding: 3rem 0;
+		border-bottom: 1px solid {color:Search Bar And Horizontal Line Between Posts Color};
+		line-height: 1.5rem;
+	}
+	article:last-child {
+		border: 0;
+	}
+	article p,
+	article h2,
+	article h3,
+	article ul,
+	article ol,
+	article > img,
+	article > a img,
+	article > div.html_photoset,
+	article > iframe,
+	article blockquote,
+	article .audio_player,
+	article #disqus_thread {
+		margin-bottom: 1rem;
+	}
+	article img {
+		max-width: 100%;
+	}
+	article img.wide {
+		width: 100%;
+	}
+	article h2,
+	article header blockquote {
+		font-weight: 300;
+		font-size: 1.5rem;
+		line-height: 1.333em;
+	}
+	article h3 {
+		font-weight: 600;
+		font-size: 1rem;
+	}
+	article a {
+		color: {color:Link Color};
+		text-decoration: underline;
+	}
+	article a:hover {
+		text-decoration: none;
+	}
+	article blockquote {
+		margin-left: 1rem;
+		padding-left: 1rem;
+		border-left: 1px solid {color:Blockquote Border Color};
+	}
+	article blockquote blockquote {
+		border-left: 1px solid {color:Blockquote Inside Blockquote Border Color};
+	}
+	article blockquote blockquote blockquote {
+		border-left: 1px solid {color:Blockquote Level 3 Border Color};
+	}
+	article blockquote blockquote blockquote blockquote {
+		border-left: 1px solid {color:Blockquote Level 4 Border Color};
+	}
+	article blockquote blockquote blockquote blockquote blockquote {
+		border-left: 1px solid {color:Blockquote Level 5 Border Color};
+	}
+	article ul li {
+		margin-left: 2rem;
+		list-style-type: square;
+	}
+	article ol li {
+		margin-left: 2rem;
+		list-style-type: decimal;
+	}
+	article.link h2 {
+		font-size: 1.25rem;
+	}
+	article.link h2 span {
+		letter-spacing: -.15rem;
+	}
+	article ol.chat li {
+		margin-left: 0;
+		list-style-type: none;
+		padding: .25rem .5rem;
+	}
+	article ol.chat li.odd {
+		background-color: {color:Odd Chat Lines Color};
+	}
+	article ol.chat li.even {
+		background-color: {color:Even Chat Lines Color};
+	}
+
+	/* METADATA */
+	footer {
+		color: {color:Meta Text Color};
+		font-size: .75rem;
+	}
+	footer a {
+		text-decoration: none;
+	}
+	footer a:hover {
+		text-decoration: underline;
+	}
+	footer.permalink {
+		margin-top: 1rem;
+	}
+	footer.permalink a {
+		color: inherit;
+	}
+	footer.metadata {
+		margin-top: 3rem;
+		padding-top: 3rem;
+		border-top: 1px solid {color:Search Bar And Horizontal Line Between Posts Color};
+	}
+	footer.metadata ul.tags li {
+		list-style: none;
+		display: inline;
+		margin: 0;
+		margin-right: .5rem;
+	}
+	footer.metadata ul.tags a::before {
+		content: "#";
+	}
+	footer.metadata ul.exif li,
+	footer.metadata ul.sources li {
+		list-style: none;
+		margin: 0;
+	}
+	footer.metadata ul.sources {
+		margin-bottom: 0;
+	}
+	footer.metadata ul.sources li:last-child {
+		margin-bottom: 1rem;
+	}
+	footer.metadata abbr {
+		border-bottom: 1px dotted {color:Meta Text Color};
+	}
+	footer.metadata ol.notes li {
+		list-style: none;
+		margin: 0;
+	}
+	footer.metadata ol.notes img.avatar {
+		height: 8px;
+	}
+	footer.metadata ol.notes span.action {
+		margin-left: .5rem;
+	}
+	footer.metadata ol.notes blockquote {
+		margin-left: calc(8px + .6rem);
+		margin-bottom: 0;
+		padding: 0;
+		border: 0;
+	}
+	footer.metadata ol.notes li.more_notes_link_container {
+		text-align: left !important;
+		margin-top: 1rem;
+	}
+
+	{CustomCSS}
+	</style>
+</head>
+<body>
+	<aside>
+		<header>
+			<h1>
+				{block:IfShowAvatar}
+					<img src="{PortraitURL-40}" alt="Avatar">
+				{/block:IfShowAvatar}
+				<a href="/" title="{lang:Home}">{Title}</a>
+			</h1>
+			{block:Description}
+				<p>{Description}</p>
+			{/block:Description}
+		</header>
+		{block:IfShowSearchBar}
+			<form action="/search" method="get">
+				<input type="text" name="q" value="{SearchQuery}" placeholder="{lang:Search}...">
+				<input type="submit" value="Search">
+			</form>
+		{/block:IfShowSearchBar}
+		<nav>
+			<ul>
+				{block:HasPages}
+					{block:Pages}
+						<li><a href="{URL}">{Label}</a></li>
+					{/block:Pages}
+				{/block:HasPages}
+				{block:IfShowRandomLink}
+					<li><a href="/random">{lang:Random post}</a></li>
+				{/block:IfShowRandomLink}
+				{block:IfShowArchiveLink}
+					<li><a href="/archive" title="{lang:Browse the archive}">{lang:Archive}</a></li>
+				{/block:IfShowArchiveLink}
+				{block:AskEnabled}
+					<li><a href="/ask">{AskLabel}</a></li>
+				{/block:AskEnabled}
+				{block:SubmissionsEnabled}
+					<li><a href="/submit">{SubmitLabel}</a></li>
+				{/block:SubmissionsEnabled}
+				{block:IfShowThemeCreditInSidebar}
+					<li><a href="https://www.tumblr.com/themes/by/noahdoersing">Theme</a></li>
+				{/block:IfShowThemeCreditInSidebar}
+			</ul>
+		</nav>
+		{block:IfNotInfiniteScrolling}
+			{block:Pagination}
+				<nav class="pagination">
+					<ol>
+						{block:PreviousPage}
+							<li><a href="/page/1">&laquo;</a></li>
+							<li><a href="{PreviousPage}" title="{lang:Older posts}">&lsaquo;</a></li>
+						{/block:PreviousPage}
+						{block:JumpPagination length="5"}
+							{block:CurrentPage}
+								<li><strong>{PageNumber}</strong></li>
+							{/block:CurrentPage}
+							{block:JumpPage}
+								<li><a href="{URL}">{PageNumber}</a></li>
+							{/block:JumpPage}
+						{/block:JumpPagination}
+						{block:NextPage}
+							<li><a href="{NextPage}" title="{lang:Newer posts}">&rsaquo;</a></li>
+							<li><a href="/page/{TotalPages}">&raquo;</a></li>
+						{/block:NextPage}
+					</ol>
+				</nav>
+			{/block:Pagination}
+		{/block:IfNotInfiniteScrolling}
+		{block:PermalinkPagination}
+			<nav class="permalink-pagination">
+				<ol>
+					{block:NextPost}
+						<li><a href="{NextPost}">&lsaquo; {lang:Newer}</a></li>
+					{/block:NextPost}
+					{block:PreviousPost}
+						<li><a href="{PreviousPost}">{lang:Older} &rsaquo;</a></li>
+					{/block:PreviousPost}
+				</ol>
+			</nav>
+		{/block:PermalinkPagination}
+		{block:DayPagination}
+			<nav class="day-pagination">
+				<ol>
+					{block:NextDayPage}
+						<li><a href="{NextDayPage}">&lsaquo; {lang:Newer}</a></li>
+					{/block:NextDayPage}
+					{block:PreviousDayPage}
+						<li><a href="{PreviousDayPage}">{lang:Older} &rsaquo;</a></li>
+					{/block:PreviousDayPage}
+				</ol>
+			</nav>
+		{/block:DayPagination}
+	</aside>
+	<section>
+		{block:DayPage}
+			<h2>{lang:Viewing everything posted on Month DayOfMonth Year}.</h2>
+		{/block:DayPage}
+		{block:TagPage}
+			<h2>{lang:Showing TagResultCount posts tagged Tag 2}.</h2>
+		{/block:TagPage}
+		{block:SearchPage}
+			<h2>{lang:Found SearchResultCount results for SearchQuery 2}{lang:Sorry no results for SearchQuery 2}.</h2>
+		{/block:SearchPage}
+		{block:IfInfiniteScrolling}<div class="autopagerize_page_element">{/block:IfInfiniteScrolling}
+			{block:Posts}
+				<article id="post-{PostID}" class="{PostType}{block:HasTags}{block:Tags} tag-{URLSafeTag}{/block:Tags}{/block:HasTags}">
+					{block:Text}
+						{block:Title}
+							<header>
+								<h2>
+									{block:IndexPage}<a href="{Permalink}" title="{lang:Permalink for this post}">{/block:IndexPage}
+										{Title}
+									{block:IndexPage}</a>{/block:IndexPage}
+								</h2>
+							</header>
+						{/block:Title}
+						{Body}
+					{/block:Text}
+
+					{block:Photo}
+						{LinkOpenTag}
+							<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="wide">
+						{LinkCloseTag}
+						{block:Caption}
+							{Caption}
+						{/block:Caption}
+					{/block:Photo}
+
+					{block:Photoset}
+						{Photoset}
+						{block:Caption}
+							{Caption}
+						{/block:Caption}
+					{/block:Photoset}
+
+					{block:Quote}
+						<header>
+							<blockquote>
+								{Quote}
+							</blockquote>
+						</header>
+						{block:Source}
+							{Source}
+						{/block:Source}
+					{/block:Quote}
+
+					{block:Link}
+						<header>
+							<h2><span>&raquo;&rarr;&nbsp;</span> <a href="{URL}" {Target}>{Name}</a></h2>
+						</header>
+						{block:Description}
+							{Description}
+						{/block:Description}
+					{/block:Link}
+
+					{block:Chat}
+						{block:Title}
+							<header>
+								<h2>
+									{block:IndexPage}<a href="{Permalink}" title="{lang:Permalink for this post}">{/block:IndexPage}
+										{Title}
+									{block:IndexPage}</a>{/block:IndexPage}
+								</h2>
+							</header>
+						{/block:Title}
+						<ol class="chat">
+							{block:Lines}
+								<li class="{Alt}">
+									{block:Label}
+										<strong>{Label}</strong>
+									{/block:Label}
+									{Line}
+								</li>
+							{/block:Lines}
+						</ol>
+					{/block:Chat}
+
+					{block:Audio}
+						{block:AudioEmbed}
+							{block:IfWideContentColumn}
+								{AudioEmbed-640}
+							{/block:IfWideContentColumn}
+							{block:IfNotWideContentColumn}
+								{AudioEmbed-500}
+							{/block:IfNotWideContentColumn}
+						{/block:AudioEmbed}
+						{block:Caption}
+							{Caption}
+						{/block:Caption}
+					{/block:Audio}
+
+					{block:Video}
+						{block:IfWideContentColumn}
+							{VideoEmbed-700}
+						{/block:IfWideContentColumn}
+						{block:IfNotWideContentColumn}
+							{VideoEmbed-500}
+						{/block:IfNotWideContentColumn}
+						{block:Caption}
+							{Caption}
+						{/block:Caption}
+					{/block:Video}
+
+					{block:Answer}
+						<header>
+							<h2><strong>{lang:Asker asked 2}:</strong> {Question}</h2>
+						</header>
+						{block:Answerer}
+							<p>{Answerer}
+								<!-- there's no translation available for this
+								(as well as some stuff further down the page),
+								and I only know German and English -->
+								{block:German}antwortete:{/block:German}
+								{block:NotGerman}answered:{/block:NotGerman}
+							</p>
+							<blockquote>
+								{Answer}
+							</blockquote>
+						{/block:Answerer}
+						{Replies}
+					{/block:Answer}
+
+					{block:Date}
+						{block:IndexPage}
+							<footer class="permalink">
+								{block:More}
+									<p><a href="{Permalink}">{lang:Read more}...</a></p>
+								{/block:More}
+								<a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">{lang:TimeAgo with NoteCount notes}</a>
+							</footer>
+						{/block:IndexPage}
+						{block:PermalinkPage}
+							<footer class="metadata">
+								<!-- tags -->
+								{block:HasTags}
+									<ul class="tags">
+										{block:Tags}
+											<li><a href="{TagURL}">{Tag}</a></li>
+										{/block:Tags}
+									</ul>
+								{/block:HasTags}
+
+								<!-- post-type dependent metadata -->
+								{block:Photo}
+									{block:Exif}
+										<ul class="exif">
+											{block:Camera}
+												<li>
+													{block:German}Kamera:{/block:German}
+													{block:NotGerman}Camera:{/block:NotGerman}
+													{Camera}
+												</li>
+											{/block:Camera}
+											{block:ISO}
+												<li>ISO: {ISO}</li>
+											{/block:ISO}
+											{block:Aperture}
+												<li>
+													{block:German}Blende:{/block:German}
+													{block:NotGerman}Aperture:{/block:NotGerman}
+													{Aperture}
+												</li>
+											{/block:Aperture}
+											{block:Exposure}
+												<li>
+													{block:German}Belichtung:{/block:German}
+													{block:NotGerman}Exposure:{/block:NotGerman}
+													{Exposure}
+												</li>
+											{/block:Exposure}
+											{block:FocalLength}
+												<li>
+													{block:German}Brennweite:{/block:German}
+													{block:NotGerman}Focal length:{/block:NotGerman}
+													{FocalLength}
+												</li>
+											{/block:FocalLength}
+										</ul>
+									{/block:Exif}
+								{/block:Photo}
+								{block:Audio}
+									<p>{PlayCountWithLabel}</p>
+								{/block:Audio}
+
+								<!-- author, reblog source, content source -->
+								<ul class="sources">
+									{block:IfShowAuthorOnPermalinkPages}
+										<li>{lang:Posted by PostAuthorName 2}</li>
+									{/block:IfShowAuthorOnPermalinkPages}
+									{block:RebloggedFrom}
+										<li>{lang:Reblogged from ReblogParentName 2}</li>
+									{/block:RebloggedFrom}
+									{block:Submission}
+										<li>
+											{block:German}Eingereicht von{/block:German}
+											{block:NotGerman}Submitted by{/block:NotGerman}
+											<a href="{SubmitterURL}">{Submitter}</a>
+										</li>
+									{/block:Submission}
+									{block:ContentSource}
+										<li>{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></li>
+									{/block:ContentSource}
+								</ul>
+
+								<!-- time, note count, comments and notes -->
+								<p><abbr title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">{lang:TimeAgo with NoteCount notes}</abbr><br>
+								<a href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}/">{lang:Show all posts made on this day}</a></p>
+								{block:IfDisqusShortname}
+									<div id="disqus_thread"></div>
+									<script type="text/javascript">
+										(function() {
+											var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+											dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
+											(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+										})();
+									</script>
+									<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
+									<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+								{/block:IfDisqusShortname}
+								{block:IfShowNotes}
+									{block:PostNotes}
+										{PostNotes}
+									{/block:PostNotes}
+								{/block:IfShowNotes}
+							</footer>
+						{/block:PermalinkPage}
+					{/block:Date}
+				</article>
+			{/block:Posts}
+		{block:IfInfiniteScrolling}</div>{/block:IfInfiniteScrolling}
+	</section>
+	{block:IfGoogleAnalyticsID}
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', '{text:Google Analytics ID}', 'tumblr.com');
+			ga('send', 'pageview');
+		</script>
+	{/block:IfGoogleAnalyticsID}
+</body>
+</html>
