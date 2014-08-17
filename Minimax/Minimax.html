@@ -172,7 +172,8 @@
 	}
 
 	/* ARTICLES */
-	section {
+	main {
+		display: block;
 		margin: 1rem 4rem 0 23rem;
 		{block:IfWideContentColumn}
 			max-width: 700px;
@@ -184,7 +185,7 @@
 	}
 	{block:IfWideContentColumn}
 		@media (min-width: 1344px) { /* calc(700px + (2 * 23rem)) with 1rem = 14px */
-			section {
+			main {
 				margin-right: auto;
 				margin-left: auto;
 			}
@@ -192,23 +193,23 @@
 	{/block:IfWideContentColumn}
 	{block:IfNotWideContentColumn}
 		@media (min-width: 1144px) { /* calc(400px + (2 * 23rem)) with 1rem = 14px */
-			section {
+			main {
 				margin-right: auto;
 				margin-left: auto;
 			}
 		}
 	{/block:IfNotWideContentColumn}
-	section > h2 {
+	main > h2 {
 		padding: 3rem 0;
 		border-bottom: 1px solid {color:Search Bar And Horizontal Line Between Posts Color};
 		font-weight: 300;
 		font-size: 1.5rem;
 		line-height: 1.333em;
 	}
-	section > h2 span.tag::before,
-	section > h2 span.tag::after,
-	section > h2 span.search_query::before,
-	section > h2 span.search_query::after {
+	main > h2 span.tag::before,
+	main > h2 span.tag::after,
+	main > h2 span.search_query::before,
+	main > h2 span.search_query::after {
 		content: "\"";
 	}
 	article {
@@ -230,7 +231,7 @@
 	article > iframe,
 	article blockquote,
 	article .audio_player,
-	article #disqus_thread {
+	article section.disqus {
 		margin-bottom: 1rem;
 	}
 	article img {
@@ -460,7 +461,7 @@
 			</nav>
 		{/block:DayPagination}
 	</aside>
-	<section>
+	<main>
 		{block:DayPage}
 			<h2>{lang:Viewing everything posted on Month DayOfMonth Year}.</h2>
 		{/block:DayPage}
@@ -675,16 +676,18 @@
 								<p><abbr title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">{lang:TimeAgo with NoteCount notes}</abbr><br>
 								<a href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}/">{lang:Show all posts made on this day}</a></p>
 								{block:IfDisqusShortname}
-									<div id="disqus_thread"></div>
-									<script type="text/javascript">
-										(function() {
-											var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-											dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
-											(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-										})();
-									</script>
-									<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
-									<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+									<section class="disqus">
+										<div id="disqus_thread"></div>
+										<script type="text/javascript">
+											(function() {
+												var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+												dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
+												(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+											})();
+										</script>
+										<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
+										<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+									</section>
 								{/block:IfDisqusShortname}
 								{block:IfShowNotes}
 									{block:PostNotes}
@@ -697,7 +700,7 @@
 				</article>
 			{/block:Posts}
 		{block:IfInfiniteScrolling}</div>{/block:IfInfiniteScrolling}
-	</section>
+	</main>
 	{block:IfGoogleAnalyticsID}
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
