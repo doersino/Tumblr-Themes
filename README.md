@@ -2,6 +2,7 @@
 
 The source code of all Tumblr themes I've [released to the Theme Garden](https://www.tumblr.com/themes/by/noahdoersing) so far, listed here in reverse chronological order:
 
+* [Minimax](https://www.tumblr.com/theme/39182)
 * [GreyGray](https://www.tumblr.com/theme/37212)
 * [Guillemets](https://www.tumblr.com/theme/35101)
 
