@@ -3,6 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>
+		{block:DayPage}
+			{lang:Viewing everything posted on Month DayOfMonth Year} -
+		{/block:DayPage}
+		{block:TagPage}
+			{lang:Showing TagResultCount posts tagged Tag} -
+		{/block:TagPage}
+		{block:SearchPage}
+			{lang:Found SearchResultCount results for SearchQuery}
+			{lang:Sorry no results for SearchQuery} -
+		{/block:SearchPage}
 		{block:PostSummary}
 			{PostSummary} -
 		{/block:PostSummary}
@@ -36,6 +46,7 @@
 	<meta name="color:Odd Chat Lines Color" content="#e8e8e8">
 	<meta name="color:Even Chat Lines Color" content="#f8f8f8">
 
+	<meta name="if:Fixed Sidebar" content="1">
 	<meta name="if:Infinite Scrolling" content="1">
 	<meta name="if:Wide Content Column" content="1">
 
@@ -43,13 +54,17 @@
 	<meta name="if:Show Search Bar" content="1">
 	<meta name="if:Show Random Link" content="1">
 	<meta name="if:Show Archive Link" content="1">
+	<meta name="if:Show Likes Link" content="0">
+	<meta name="if:Show Group Members" content="0">
+	<meta name="if:Show Blogs You Follow" content="0">
+
 	<meta name="if:Show Author On Permalink Pages" content="0">
 	<meta name="if:Show Notes" content="1">
 
-	<meta name="if:Show Theme Credit In Sidebar" content="0">
-
 	<meta name="text:Disqus Shortname" content="">
 	<meta name="text:Google Analytics ID" content="">
+
+	<meta name="if:Show Theme Credit In Sidebar" content="0">
 
 	{block:IfInfiniteScrolling}
 		<script src="http://codysherman.com/tools/infinite-scrolling/code"></script>
@@ -92,6 +107,8 @@
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 	}
 	html {
@@ -115,11 +132,25 @@
 
 	/* SIDEBAR */
 	aside {
-		position: fixed;
-		top: 3.9rem;
+		top: 0;
 		left: 4rem;
-		width: 15rem;
+		padding: 3.9rem 0 1.9rem;
+		width: 14rem;
+		{block:IfFixedSidebar}
+			position: fixed;
+			height: 100%;
+			overflow-y: scroll;
+			-ms-overflow-style: none;
+		{/block:IfFixedSidebar}
+		{block:IfNotFixedSidebar}
+			position: absolute;
+		{/block:IfNotFixedSidebar}
 	}
+	{block:IfFixedSidebar}
+		aside::-webkit-scrollbar {
+			display: none;
+		}
+	{/block:IfFixedSidebar}
 	aside > * {
 		margin-bottom: 2rem;
 	}
@@ -150,13 +181,22 @@
 		background-color: transparent;
 		border: 1px solid {color:Search Bar And Horizontal Line Between Posts Color};
 		padding: .25rem;
-		width: 75%;
+		width: 100%;
 		font-family: inherit;
 		font-size: .75rem;
 	}
 	aside input[type="submit"] {
 		display: none;
 	}
+	aside h2 {
+		font-weight: 600;
+		font-size: 1rem;
+		margin-bottom: .5rem;
+	}
+	aside ul.groupmembers li img {
+		height: .66rem;
+	}
+	aside ul.following li,
 	aside nav.pagination ol li,
 	aside nav.permalink-pagination ol li,
 	aside nav.day-pagination ol li {
@@ -174,7 +214,7 @@
 	/* ARTICLES */
 	main {
 		display: block;
-		margin: 1rem 4rem 0 23rem;
+		margin: 1rem 4rem 0 22rem;
 		{block:IfWideContentColumn}
 			max-width: 700px;
 		{/block:IfWideContentColumn}
@@ -184,7 +224,7 @@
 
 	}
 	{block:IfWideContentColumn}
-		@media (min-width: 1344px) { /* calc(700px + (2 * 23rem)) with 1rem = 14px */
+		@media (min-width: 1316px) { /* calc(700px + (2 * 22rem)) with 1rem = 14px */
 			main {
 				margin-right: auto;
 				margin-left: auto;
@@ -192,16 +232,18 @@
 		}
 	{/block:IfWideContentColumn}
 	{block:IfNotWideContentColumn}
-		@media (min-width: 1144px) { /* calc(400px + (2 * 23rem)) with 1rem = 14px */
+		@media (min-width: 1116px) { /* calc(500px + (2 * 22rem)) with 1rem = 14px */
 			main {
 				margin-right: auto;
 				margin-left: auto;
 			}
 		}
 	{/block:IfNotWideContentColumn}
-	main > h2 {
+	main > header {
 		padding: 3rem 0;
 		border-bottom: 1px solid {color:Search Bar And Horizontal Line Between Posts Color};
+	}
+	main > header h2 {
 		font-weight: 300;
 		font-size: 1.5rem;
 		line-height: 1.333em;
@@ -371,23 +413,28 @@
 </head>
 <body>
 	<aside>
+		<!-- title and description -->
 		<header>
 			<h1>
 				{block:IfShowAvatar}
 					<img src="{PortraitURL-40}" alt="Avatar">
 				{/block:IfShowAvatar}
-				<a href="/" title="{lang:Home}">{Title}</a>
+				<a href="{BlogURL}" title="{lang:Home}">{Title}</a>
 			</h1>
 			{block:Description}
 				<p>{Description}</p>
 			{/block:Description}
 		</header>
+
+		<!-- search bar -->
 		{block:IfShowSearchBar}
 			<form action="/search" method="get">
 				<input type="text" name="q" value="{SearchQuery}" placeholder="{lang:Search}...">
 				<input type="submit" value="Search">
 			</form>
 		{/block:IfShowSearchBar}
+
+		<!-- pages -->
 		<nav>
 			<ul>
 				{block:HasPages}
@@ -396,11 +443,14 @@
 					{/block:Pages}
 				{/block:HasPages}
 				{block:IfShowRandomLink}
-					<li><a href="/random">{lang:Random post}</a></li>
+					<li><a href="/random" title="{lang:Random post}">{lang:Random}</a></li>
 				{/block:IfShowRandomLink}
 				{block:IfShowArchiveLink}
 					<li><a href="/archive" title="{lang:Browse the archive}">{lang:Archive}</a></li>
 				{/block:IfShowArchiveLink}
+				{block:IfShowLikesLink}
+					<li><a href="/likes" title="{lang:Liked posts}">{lang:Liked}</a></li>
+				{/block:IfShowLikesLink}
 				{block:AskEnabled}
 					<li><a href="/ask">{AskLabel}</a></li>
 				{/block:AskEnabled}
@@ -412,6 +462,35 @@
 				{/block:IfShowThemeCreditInSidebar}
 			</ul>
 		</nav>
+
+		<!-- group members (only available on secondary blogs) -->
+		{block:IfShowGroupMembers}
+			<h2>{lang:Group members}:</h2>
+			{block:GroupMembers}
+				<ul class="groupmembers">
+					{block:GroupMember}
+						<li>
+							<img src="{GroupMemberPortraitURL-24}" alt=""> <a href="{GroupMemberURL}" title="{GroupMemberName}">{GroupMemberName}</a>
+						</li>
+					{/block:GroupMember}
+				</ul>
+			{/block:GroupMembers}
+		{/block:IfShowGroupMembers}
+
+		<!-- blogs you follow (only available on primary blogs) -->
+		{block:IfShowBlogsYouFollow}
+			{block:Following}
+				<ul class="following">
+					{block:Followed}
+						<li>
+							<a href="{FollowedURL}" title="{FollowedName}"><img src="{FollowedPortraitURL-16}" alt="{FollowedName}"></a>
+						</li>
+					{/block:Followed}
+				</ul>
+			{/block:Following}
+		{block:IfShowBlogsYouFollow}
+
+		<!-- pagination -->
 		{block:IfNotInfiniteScrolling}
 			{block:Pagination}
 				<nav class="pagination">
@@ -436,6 +515,8 @@
 				</nav>
 			{/block:Pagination}
 		{/block:IfNotInfiniteScrolling}
+
+		<!-- permalink pagination -->
 		{block:PermalinkPagination}
 			<nav class="permalink-pagination">
 				<ol>
@@ -448,6 +529,8 @@
 				</ol>
 			</nav>
 		{/block:PermalinkPagination}
+
+		<!-- day pagination -->
 		{block:DayPagination}
 			<nav class="day-pagination">
 				<ol>
@@ -463,13 +546,19 @@
 	</aside>
 	<main>
 		{block:DayPage}
-			<h2>{lang:Viewing everything posted on Month DayOfMonth Year}.</h2>
+			<header>
+				<h2>{lang:Viewing everything posted on Month DayOfMonth Year}.</h2>
+			</header>
 		{/block:DayPage}
 		{block:TagPage}
-			<h2>{lang:Showing TagResultCount posts tagged Tag 2}.</h2>
+			<header>
+				<h2>{lang:Showing TagResultCount posts tagged Tag 2}.</h2>
+			</header>
 		{/block:TagPage}
 		{block:SearchPage}
-			<h2>{lang:Found SearchResultCount results for SearchQuery 2}{lang:Sorry no results for SearchQuery 2}.</h2>
+			<header>
+				<h2>{lang:Found SearchResultCount results for SearchQuery 2}{lang:Sorry no results for SearchQuery 2}.</h2>
+			</header>
 		{/block:SearchPage}
 		{block:IfInfiniteScrolling}<div class="autopagerize_page_element">{/block:IfInfiniteScrolling}
 			{block:Posts}
