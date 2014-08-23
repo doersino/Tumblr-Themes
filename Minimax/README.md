@@ -10,7 +10,7 @@ Hey there! This is Minimax, a minimalist Tumblr theme with a maximalist number o
 * Search
 * Day pages, Tag pages, and Search result pages
 * Newer/Older links on permalink and day pages
-* optional list of **group members** or **blogs you follow** in the sidebar
+* optional list of **group members** or **blogs you follow** in the sidebar (group members only available on secondary blogs, blogs you follow only available on primary blogs)
 * optional wide content column
 * optional **Infinite Scrolling**
 * optional **Google Analytics** integration
@@ -29,8 +29,8 @@ If you have any questions or suggestions, please don't hesitate to [send me a me
 ### Version 2 (2014-08-22)
 * Improved `<title>` on Day pages, Tag pages, and Search result pages
 * Added optional "Liked" link to the sidebar (requires you to enable "Share posts you like" in the Dashboard settings)
-* Added optional list of group members to the sidebar
-* Added optional list of blogs you follow to the sidebar
+* Added optional list of group members to the sidebar (only available on secondary blogs)
+* Added optional list of blogs you follow to the sidebar (only available on primary blogs)
 * Changed sidebar to be scrollable when its content overflows (which happens easily enough if you follow a lot of blogs)
 * Added an option to stick the sidebar to the top to the page (as opposed to the top of the viewport) as another way of dealing with lots of links, group members, or followed blogs
 * Some minor changes
