@@ -1,6 +1,6 @@
 # Tumblr Themes
 
-The source code of all Tumblr themes I've [released to the Theme Garden](https://www.tumblr.com/themes/by/noahdoersing) so far, listed here in reverse chronological order:
+The source code of all Tumblr themes I've [submitted to the Theme Garden](https://www.tumblr.com/themes/by/noahdoersing) so far, listed here in reverse chronological order of release:
 
 * [Minimax](https://www.tumblr.com/theme/39182)
 * [GreyGray](https://www.tumblr.com/theme/37212)
