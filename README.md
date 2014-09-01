@@ -6,6 +6,8 @@ The source code of all Tumblr themes I've [submitted to the Theme Garden](https:
 * [GreyGray](https://www.tumblr.com/theme/37212)
 * [Guillemets](https://www.tumblr.com/theme/35101)
 
+In [Snippets.md](blob/master/Snippets.md), I've listed a few HTML5 code snippets that may prove useful for rapid Tumblr theme development.
+
 ## License (MIT)
 
 ```
