@@ -72,7 +72,7 @@ On index pages, this snippet shows links to some previous and next pages, as wel
 		<ol>
 			{block:PreviousPage}
 				<li><a href="/page/1">&laquo;</a></li>
-				<li><a href="{PreviousPage}" title="{lang:Older posts}">&lsaquo;</a></li>
+				<li><a href="{PreviousPage}" title="{lang:Newer posts}">&lsaquo;</a></li>
 			{/block:PreviousPage}
 			{block:JumpPagination length="5"}
 				{block:CurrentPage}
@@ -83,7 +83,7 @@ On index pages, this snippet shows links to some previous and next pages, as wel
 				{/block:JumpPage}
 			{/block:JumpPagination}
 			{block:NextPage}
-				<li><a href="{NextPage}" title="{lang:Newer posts}">&rsaquo;</a></li>
+				<li><a href="{NextPage}" title="{lang:Older posts}">&rsaquo;</a></li>
 				<li><a href="/page/{TotalPages}">&raquo;</a></li>
 			{/block:NextPage}
 		</ol>
