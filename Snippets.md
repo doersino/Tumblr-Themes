@@ -5,7 +5,11 @@ Some HTML5 code snippets that may prove useful for fast Tumblr theme development
 Comments like `<!-- ... -->` or `/* ... */` denote placeholders for your own code.
 
 ### Table of Contents
-
+- [Basic Structure](#user-content-basic-structure)
+- [Pagination](#user-content-pagination)
+	- [Index Pagination](#user-content-index-pagination)
+	- [Permalink Pagination](#user-content-permalink-pagination)
+	- [Day Pagination](#user-content-day-pagination)
 
 ## Basic Structure
 Containing all required `<head>` metadata.
