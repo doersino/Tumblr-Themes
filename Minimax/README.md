@@ -26,6 +26,9 @@ These settings allow you to completely transform the look of the theme, as you c
 If you have any questions or suggestions, please don't hesitate to [send me a message over at the demo blog](http://minimaxtheme.tumblr.com/ask).
 
 ## Changelog
+### Version 3 (2014-09-02)
+* Some minor bug fixes and additions
+
 ### Version 2 (2014-08-22)
 * Improved `<title>` on Day pages, Tag pages, and Search result pages
 * Added optional "Liked" link to the sidebar (requires you to enable "Share posts you like" in the Dashboard settings)
