@@ -75,8 +75,8 @@
 
 	Minimax Tumblr Theme by Noah Doersing
 	https://www.tumblr.com/themes/by/noahdoersing
-	You may use, modify or share this theme in accordance with the following
-	license (TL;DR: don't sue me or claim that you've made this theme):
+	You may use, modify and/or share this theme in accordance with the following
+	license (TL;DR: don't remove this notice and don't sue me):
 
 	The MIT License (MIT)
 
@@ -277,10 +277,15 @@
 	article > div.html_photoset,
 	article > iframe,
 	article blockquote,
-	article .audio_player,
+	article pre,
 	article section.disqus {
 		margin-bottom: 1rem;
 	}
+	{block:IfWideContentColumn}
+		article > iframe[class*="_audio_player"] {
+			width: 700px;
+		}
+	{/block:IfWideContentColumn}
 	article img {
 		max-width: 100%;
 	}
@@ -349,6 +354,22 @@
 	}
 	article ol.chat li.even {
 		background-color: {color:Even Chat Lines Color};
+	}
+	article code {
+		font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		padding: .3rem .3rem .1rem;
+		background-color: {color:Search Bar And Horizontal Line Between Posts Color};
+		line-height: 1rem;
+	}
+	article pre {
+		background-color: {color:Text Color};
+		color: {color:Background Color};
+		padding: 1.5rem 2rem;
+		overflow: scroll;
+	}
+	article pre code {
+		padding: 0;
+		background-color: transparent;
 	}
 
 	/* METADATA */
