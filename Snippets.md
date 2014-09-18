@@ -126,3 +126,24 @@ On day pages (e.g. `/day/2014/08/30/`), this shows links to the previous and nex
 	</nav>
 {/block:DayPagination}
 ```
+
+## Posts Wrapper
+The advantage of using `{block:HasTags}{block:Tags} tag-{URLSafeTag}{/block:Tags}{/block:HasTags}` instead of `{TagsAsClasses}` is that this will prevent any conflicts when using tags that equal classes used in your theme. However, this solution does not include some of the useful features `{TagsAsClasses}` provides, e.g. adding the class "reblog" if the post was reblogged from another post.
+
+```html
+{block:Posts}
+	<article id="post-{PostID}" class="{PostType}{block:HasTags}{block:Tags} tag-{URLSafeTag}{/block:Tags}{/block:HasTags}">
+		{block:Text}
+			<!-- ... -->
+		{/block:Text}
+		<!-- ... -->
+	</article>
+{/block:Posts}
+```
+
+## Day Page Link
+On permalink pages, this shows a link to the corresponding day page.
+
+```html
+<a href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}/">{lang:Show all posts made on this day}</a></p>
+```
