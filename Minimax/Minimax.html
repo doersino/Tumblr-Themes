@@ -262,6 +262,7 @@
 		padding: 3rem 0;
 		border-bottom: 1px solid {color:Search Bar And Horizontal Line Between Posts Color};
 		line-height: 1.5rem;
+		word-wrap: break-word;
 	}
 	article:last-child {
 		border: 0;
@@ -280,6 +281,12 @@
 	article pre,
 	article section.disqus {
 		margin-bottom: 1rem;
+	}
+	article > img.wide,
+	article > iframe[class*="_audio_player"],
+	article > iframe[src*="youtube.com/embed"],
+	article > iframe[src*="player.vimeo.com"] {
+		display: block;
 	}
 	{block:IfWideContentColumn}
 		article > iframe[class*="_audio_player"] {
@@ -367,6 +374,10 @@
 		padding: 1.5rem 2rem;
 		overflow: scroll;
 	}
+	article .gist pre {
+		color: black;
+		overflow: initial;
+	}
 	article pre code {
 		padding: 0;
 		background-color: transparent;
@@ -386,6 +397,15 @@
 	footer.permalink {
 		margin-top: 1rem;
 	}
+	article > img.wide + footer.permalink,
+	article > iframe[class*="_audio_player"] + footer.permalink,
+	article > iframe[src*="youtube.com/embed"] + footer.permalink,
+	article > iframe[src*="player.vimeo.com"] + footer.permalink {
+		margin-top: 1.5rem;
+	}
+	article > a.click-through + footer.permalink {
+		margin-top: .125rem;
+	}
 	footer.permalink a {
 		color: inherit;
 	}
@@ -393,6 +413,15 @@
 		margin-top: 3rem;
 		padding-top: 3rem;
 		border-top: 1px solid {color:Search Bar And Horizontal Line Between Posts Color};
+	}
+	article > img.wide + footer.metadata,
+	article > iframe[class*="_audio_player"] + footer.metadata,
+	article > iframe[src*="youtube.com/embed"] + footer.metadata,
+	article > iframe[src*="player.vimeo.com"] + footer.metadata {
+		margin-top: 3.67rem;
+	}
+	article > a.click-through + footer.metadata {
+		margin-top: 2.25rem;
 	}
 	footer.metadata ul.tags li {
 		list-style: none;
@@ -607,9 +636,9 @@
 					{/block:Text}
 
 					{block:Photo}
-						{LinkOpenTag}
-							<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="wide">
-						{LinkCloseTag}
+						{block:LinkURL}<a href="{LinkURL}" class="click-through">{/block:LinkURL}
+						<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="wide">
+						{block:LinkURL}</a>{/block:LinkURL}
 						{block:Caption}
 							{Caption}
 						{/block:Caption}

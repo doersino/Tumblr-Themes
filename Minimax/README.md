@@ -26,6 +26,10 @@ These settings allow you to completely transform the look of the theme, as you c
 If you have any questions or suggestions, please don't hesitate to [send me a message over at the demo blog](http://minimaxtheme.tumblr.com/ask).
 
 ## Changelog
+### Version 5 (2014-09-18)
+* Fixed bug where the gap between post content and footer was different for photo, audio, and video posts with empty caption than for other post types
+* Some minor bug fixes and changes
+
 ### Version 4 (2014-09-07)
 * Added styles for `<code>` and `<pre>` tags
 * Increased audio player width from 640px to 700px when the "Wide Content Column" setting is enabled
