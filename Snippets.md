@@ -10,6 +10,8 @@ Comments like `<!-- ... -->` or `/* ... */` denote placeholders for your own cod
 	- [Index Pagination](#user-content-index-pagination)
 	- [Permalink Pagination](#user-content-permalink-pagination)
 	- [Day Pagination](#user-content-day-pagination)
+- [Posts Wrapper](#user-content-posts-wrapper)
+- [Day Page Link](#user-content-day-page-link)
 
 ## Basic Structure
 Containing all required `<head>` metadata.
