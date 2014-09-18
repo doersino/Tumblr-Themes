@@ -27,7 +27,7 @@ If you have any questions or suggestions, please don't hesitate to [send me a me
 
 ## Changelog
 ### Version 5 (2014-09-18)
-* Fixed bug where the gap between post content and footer was different for photo, audio, and video posts with empty caption than for other post types
+* Fixed bug that caused the gap between post content and footer to be different for photo, audio, and video posts with empty captions than for other post types
 * Some minor bug fixes and changes
 
 ### Version 4 (2014-09-07)
