@@ -26,6 +26,9 @@ These settings allow you to completely transform the look of the theme, as you c
 If you have any questions or suggestions, please don't hesitate to [send me a message over at the demo blog](http://minimaxtheme.tumblr.com/ask).
 
 ## Changelog
+### Version 6 (2014-09-20)
+* Fixed bug that made quotation marks not show up in the content column heading on tag pages and search result pages
+
 ### Version 5 (2014-09-18)
 * Fixed bug that caused the gap between post content and footer to be different for photo, audio, and video posts with empty captions than for other post types
 * Some minor bug fixes and changes
