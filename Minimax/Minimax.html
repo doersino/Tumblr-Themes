@@ -58,6 +58,7 @@
 	<meta name="if:Show Group Members" content="0">
 	<meta name="if:Show Blogs You Follow" content="0">
 
+	<meta name="if:Show Tags On Index Pages" content="0">
 	<meta name="if:Show Author On Permalink Pages" content="0">
 	<meta name="if:Show Notes" content="1">
 
@@ -409,6 +410,17 @@
 	footer.permalink a {
 		color: inherit;
 	}
+	footer.permalink ul.tags li,
+	footer.metadata ul.tags li {
+		list-style: none;
+		display: inline;
+		margin: 0;
+		margin-right: .5rem;
+	}
+	footer.permalink ul.tags a::before,
+	footer.metadata ul.tags a::before {
+		content: "#";
+	}
 	footer.metadata {
 		margin-top: 3rem;
 		padding-top: 3rem;
@@ -422,15 +434,6 @@
 	}
 	article > a.click-through + footer.metadata {
 		margin-top: 2.25rem;
-	}
-	footer.metadata ul.tags li {
-		list-style: none;
-		display: inline;
-		margin: 0;
-		margin-right: .5rem;
-	}
-	footer.metadata ul.tags a::before {
-		content: "#";
 	}
 	footer.metadata ul.exif li,
 	footer.metadata ul.sources li {
@@ -741,9 +744,23 @@
 					{block:Date}
 						{block:IndexPage}
 							<footer class="permalink">
+								<!-- more -->
 								{block:More}
 									<p><a href="{Permalink}">{lang:Read more}...</a></p>
 								{/block:More}
+
+								<!-- tags -->
+								{block:IfShowTagsOnIndexPages}
+									{block:HasTags}
+										<ul class="tags">
+											{block:Tags}
+												<li><a href="{TagURL}">{Tag}</a></li>
+											{/block:Tags}
+										</ul>
+									{/block:HasTags}
+								{/block:IfShowTagsOnIndexPages}
+
+								<!-- permalink, time and note count-->
 								<a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">{lang:TimeAgo with NoteCount notes}</a>
 							</footer>
 						{/block:IndexPage}
