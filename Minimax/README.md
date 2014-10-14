@@ -12,7 +12,7 @@ Hey there! This is Minimax, a minimalist Tumblr theme with a maximalist number o
 * Newer/Older links on permalink and day pages
 * optional list of **group members** or **blogs you follow** in the sidebar (group members only available on secondary blogs, blogs you follow only available on primary blogs)
 * optional wide content column
-* optional **Infinite Scrolling** (which doesn't break navigation for users who choose to disable JavaScript)
+* optional **Infinite Scrolling** (that doesn't break navigation for users who choose to disable JavaScript)
 * optional **Google Analytics** integration
 * optional **Disqus** comments
 * Successfully tested in Google Chrome 35+, Safari 7+, Internet Explorer 9+, Mozilla Firefox 19+, and Opera 11+
