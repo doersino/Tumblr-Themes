@@ -49,6 +49,7 @@
 	<meta name="if:Fixed Sidebar" content="1">
 	<meta name="if:Infinite Scrolling" content="1">
 	<meta name="if:Wide Content Column" content="1">
+	<meta name="if:Small Avatar" content="1">
 
 	<meta name="if:Show Avatar" content="1">
 	<meta name="if:Show Search Bar" content="1">
@@ -76,8 +77,9 @@
 
 	Minimax Tumblr Theme by Noah Doersing
 	https://www.tumblr.com/themes/by/noahdoersing
-	You may use, modify and/or share this theme in accordance with the following
-	license (TL;DR: don't remove this notice and don't sue me):
+	https://github.com/doersino/Tumblr-Themes
+	You may use, modify and/or share this theme only in accordance with the
+	following license (TL;DR: don't remove this notice and don't sue me):
 
 	The MIT License (MIT)
 
@@ -162,9 +164,13 @@
 	aside h1 a {
 		color: {color:Blog Title Color} !important;
 	}
-	aside h1 img {
+	aside h1 img.small {
 		height: 1.2rem;
 		padding-right: .4rem;
+	}
+	aside h1 img.large {
+		width: 100%;
+		margin-bottom: 1.33rem;
 	}
 	aside p {
 		font-weight: 300;
@@ -202,9 +208,7 @@
 		height: 1.15rem;
 	}
 	aside ul.following li,
-	aside nav.pagination ol li,
-	aside nav.permalink-pagination ol li,
-	aside nav.day-pagination ol li {
+	aside nav.pagination ol li {
 		display: inline;
 	}
 	aside nav.permalink-pagination ol li::after,
@@ -288,6 +292,7 @@
 	article > iframe[src*="youtube.com/embed"],
 	article > iframe[src*="player.vimeo.com"] {
 		display: block;
+		max-width: 100%;
 	}
 	{block:IfWideContentColumn}
 		article > iframe[class*="_audio_player"] {
@@ -479,7 +484,12 @@
 		<header>
 			<h1>
 				{block:IfShowAvatar}
-					<img src="{PortraitURL-40}" alt="Avatar">
+					{block:IfSmallAvatar}
+						<img src="{PortraitURL-40}" alt="Avatar" class="small">
+					{/block:IfSmallAvatar}
+					{block:IfNotSmallAvatar}
+						<img src="{PortraitURL-128}" alt="Avatar" class="large">
+					{/block:IfNotSmallAvatar}
 				{/block:IfShowAvatar}
 				<a href="{BlogURL}" title="{lang:Home}">{Title}</a>
 			</h1>
@@ -553,34 +563,37 @@
 		{block:IfShowBlogsYouFollow}
 
 		<!-- pagination -->
-		{block:IfNotInfiniteScrolling}
-			{block:Pagination}
-				<nav class="pagination">
-					<ol>
-						{block:PreviousPage}
-							<li><a href="/page/1">&laquo;</a></li>
-							<li><a href="{PreviousPage}" title="{lang:Newer posts}">&lsaquo;</a></li>
-						{/block:PreviousPage}
-						{block:JumpPagination length="5"}
-							{block:CurrentPage}
-								<li><strong>{PageNumber}</strong></li>
-							{/block:CurrentPage}
-							{block:JumpPage}
-								<li><a href="{URL}">{PageNumber}</a></li>
-							{/block:JumpPage}
-						{/block:JumpPagination}
-						{block:NextPage}
-							<li><a href="{NextPage}" title="{lang:Older posts}">&rsaquo;</a></li>
-							<li><a href="/page/{TotalPages}">&raquo;</a></li>
-						{/block:NextPage}
-					</ol>
-				</nav>
-			{/block:Pagination}
-		{/block:IfNotInfiniteScrolling}
+		{block:Pagination}
+			<nav id="pagination" class="pagination">
+				<ol>
+					{block:PreviousPage}
+						<li><a href="/page/1">&laquo;</a></li>
+						<li><a href="{PreviousPage}" title="{lang:Newer posts}">&lsaquo;</a></li>
+					{/block:PreviousPage}
+					{block:JumpPagination length="5"}
+						{block:CurrentPage}
+							<li><strong>{PageNumber}</strong></li>
+						{/block:CurrentPage}
+						{block:JumpPage}
+							<li><a href="{URL}">{PageNumber}</a></li>
+						{/block:JumpPage}
+					{/block:JumpPagination}
+					{block:NextPage}
+						<li><a href="{NextPage}" title="{lang:Older posts}">&rsaquo;</a></li>
+						<li><a href="/page/{TotalPages}">&raquo;</a></li>
+					{/block:NextPage}
+				</ol>
+			</nav>
+			{block:IfInfiniteScrolling}
+				<script>
+					document.getElementById("pagination").style.display = "none";
+				</script>
+			{/block:IfInfiniteScrolling}
+		{/block:Pagination}
 
 		<!-- permalink pagination -->
 		{block:PermalinkPagination}
-			<nav class="permalink-pagination">
+			<nav class="pagination permalink-pagination">
 				<ol>
 					{block:NextPost}
 						<li><a href="{NextPost}">&lsaquo; {lang:Newer}</a></li>
@@ -594,7 +607,7 @@
 
 		<!-- day pagination -->
 		{block:DayPagination}
-			<nav class="day-pagination">
+			<nav class="pagination day-pagination">
 				<ol>
 					{block:NextDayPage}
 						<li><a href="{NextDayPage}">&lsaquo; {lang:Newer}</a></li>
