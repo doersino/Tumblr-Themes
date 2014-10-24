@@ -26,6 +26,9 @@ These settings allow you to completely transform the look of the theme, as you c
 If you have any questions or suggestions, please don't hesitate to [send me a message over at the demo blog](http://minimaxtheme.tumblr.com/ask).
 
 ## Changelog
+### Version 9 (2014-09-24)
+* Added some JavaScript code that attempts to load the 512px version of the blog's avatar if the large avatar option is enabled
+
 ### Version 8 (2014-09-14)
 * Improved pagination: if "Infinite Scrolling" is enabled, the pagination is now hidden using JavaScript instead of Tumblr template tags, allowing users who choose to disable JavaScript to navigate without any issues
 * Improved video and audio player width on small screens

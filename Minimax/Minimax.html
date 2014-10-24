@@ -488,7 +488,18 @@
 						<img src="{PortraitURL-40}" alt="Avatar" class="small">
 					{/block:IfSmallAvatar}
 					{block:IfNotSmallAvatar}
-						<img src="{PortraitURL-128}" alt="Avatar" class="large">
+						<img src="{PortraitURL-128}" alt="Avatar" id="avatar" class="large">
+						<script>
+							// try replacing 128px avatar with larger 512px
+							// version not embeddable with template tags
+							var avatarUrl128 = document.getElementById("avatar").src;
+							var avatarUrl512 = avatarUrl128.replace("_128.", "_512.");
+							var avatarImage512 = new Image();
+							avatarImage512.src = avatarUrl512;
+							avatarImage512.onload = function() {
+								document.getElementById("avatar").src = avatarUrl512;
+							}
+						</script>
 					{/block:IfNotSmallAvatar}
 				{/block:IfShowAvatar}
 				<a href="{BlogURL}" title="{lang:Home}">{Title}</a>
