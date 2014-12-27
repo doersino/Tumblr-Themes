@@ -1,0 +1,1 @@
+GreyGray is a simple, minimalist theme featuring screen-optimized typography and large photos. Additionally, every color is customizable and you can show or hide tags and notes as you please. Sounds good? You bet!
