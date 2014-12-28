@@ -485,10 +485,10 @@
 			<h1>
 				{block:IfShowAvatar}
 					{block:IfSmallAvatar}
-						<img src="{PortraitURL-40}" alt="Avatar" class="small">
+						<a href="{BlogURL}" title="{lang:Home}"><img src="{PortraitURL-40}" alt="Avatar" class="small"></a>
 					{/block:IfSmallAvatar}
 					{block:IfNotSmallAvatar}
-						<img src="{PortraitURL-128}" alt="Avatar" id="avatar" class="large">
+						<a href="{BlogURL}" title="{lang:Home}"><img src="{PortraitURL-128}" alt="Avatar" id="avatar" class="large"></a>
 						<script>
 							// try replacing 128px avatar with larger 512px
 							// version not embeddable with template tags

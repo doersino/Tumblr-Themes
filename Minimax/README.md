@@ -26,6 +26,10 @@ These settings allow you to completely transform the look of the theme, as you c
 If you have any questions or suggestions, please don't hesitate to [send me a message over at the demo blog](http://minimaxtheme.tumblr.com/ask).
 
 ## Changelog
+
+### Version 10 (2014-12-28)
+* Changed the avatar to link to the blog index
+
 ### Version 9 (2014-09-24)
 * Added some JavaScript code that attempts to load the 512px version of the blog's avatar if the large avatar option is enabled
 
