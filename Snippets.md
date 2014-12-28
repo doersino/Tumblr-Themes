@@ -123,7 +123,7 @@ On index pages, this snippet shows links to some previous and next pages, as wel
 {/block:Pagination}
 ```
 
-**Note:** If you provide an option `<meta name="if:Infinite Scrolling" content="1">` to enable or disable *Infinite Scrolling*, use this snippet:
+**Note:** If you provide an option `<meta name="if:Infinite Scrolling" content="1">` allowing users to enable or disable *Infinite Scrolling*, use this snippet:
 
 ```html
 {block:Pagination}
