@@ -93,6 +93,68 @@ On index pages, this snippet shows links to some previous and next pages, as wel
 {/block:Pagination}
 ```
 
+**Note:** If you are using one of the *Infinite Scrolling* scripts instead of index pagination, keep in mind that users who choose to disable JavaScript will not be able to navigate to older posts. Adding an index pagination and immediately hiding it with JavaScript will fix this:
+
+```html
+{block:Pagination}
+	<nav id="pagination" class="pagination">
+		<ol>
+			{block:PreviousPage}
+				<li><a href="/page/1">&laquo;</a></li>
+				<li><a href="{PreviousPage}" title="{lang:Newer posts}">&lsaquo;</a></li>
+			{/block:PreviousPage}
+			{block:JumpPagination length="5"}
+				{block:CurrentPage}
+					<li><em>{PageNumber}</em></li>
+				{/block:CurrentPage}
+				{block:JumpPage}
+					<li><a href="{URL}">{PageNumber}</a></li>
+				{/block:JumpPage}
+			{/block:JumpPagination}
+			{block:NextPage}
+				<li><a href="{NextPage}" title="{lang:Older posts}">&rsaquo;</a></li>
+				<li><a href="/page/{TotalPages}">&raquo;</a></li>
+			{/block:NextPage}
+		</ol>
+	</nav>
+	<script>
+		document.getElementById("pagination").style.display = "none";
+	</script>
+{/block:Pagination}
+```
+
+**Note:** If you provide an option `<meta name="if:Infinite Scrolling" content="1">` to enable or disable *Infinite Scrolling*, use this snippet:
+
+```html
+{block:Pagination}
+	<nav id="pagination" class="pagination">
+		<ol>
+			{block:PreviousPage}
+				<li><a href="/page/1">&laquo;</a></li>
+				<li><a href="{PreviousPage}" title="{lang:Newer posts}">&lsaquo;</a></li>
+			{/block:PreviousPage}
+			{block:JumpPagination length="5"}
+				{block:CurrentPage}
+					<li><em>{PageNumber}</em></li>
+				{/block:CurrentPage}
+				{block:JumpPage}
+					<li><a href="{URL}">{PageNumber}</a></li>
+				{/block:JumpPage}
+			{/block:JumpPagination}
+			{block:NextPage}
+				<li><a href="{NextPage}" title="{lang:Older posts}">&rsaquo;</a></li>
+				<li><a href="/page/{TotalPages}">&raquo;</a></li>
+			{/block:NextPage}
+		</ol>
+	</nav>
+	{block:IfInfiniteScrolling}
+		<script>
+			document.getElementById("pagination").style.display = "none";
+		</script>
+	{/block:IfInfiniteScrolling}
+{/block:Pagination}
+```
+
 ### Permalink Pagination
 On permalink pages, this shows links to the previous and next post.
 
