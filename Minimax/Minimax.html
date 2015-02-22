@@ -60,6 +60,7 @@
 	<meta name="if:Show Blogs You Follow" content="0">
 
 	<meta name="if:Show Tags On Index Pages" content="0">
+	<meta name="if:Show Like And Reblog Buttons On Index Pages" content="0">
 	<meta name="if:Show Author On Permalink Pages" content="0">
 	<meta name="if:Show Notes" content="1">
 
@@ -414,6 +415,15 @@
 	}
 	footer.permalink a {
 		color: inherit;
+	}
+	footer.permalink .buttons {
+		display: inline-block;
+		margin-left: .3rem;
+		letter-spacing: .3rem;
+	}
+	footer.permalink .buttons .like_button,
+	footer.permalink .buttons .reblog_button {
+		display: inline-block !important;
 	}
 	footer.permalink ul.tags li,
 	footer.metadata ul.tags li {
@@ -786,6 +796,14 @@
 
 								<!-- permalink, time and note count-->
 								<a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">{lang:TimeAgo with NoteCount notes}</a>
+
+								<!-- like and reblog buttons -->
+								{block:IfShowLikeAndReblogButtonsOnIndexPages}
+									<div class="buttons">
+										{LikeButton size="11" color="grey"}
+										{ReblogButton size="11" color="grey"}
+									</div>
+								{/block:IfShowLikeAndReblogButtonsOnIndexPages}
 							</footer>
 						{/block:IndexPage}
 						{block:PermalinkPage}

@@ -19,13 +19,16 @@ Hey there! This is Minimax, a minimalist Tumblr theme with a maximalist number o
 * Valid semantic HTML5 markup (that is, if you exclude the stuff Tumblr inserts into the page after processing the theme)
 * Source code licensed under the [MIT license](https://github.com/doersino/Tumblr-Themes#license-mit) and [available on GitHub](https://github.com/doersino/Tumblr-Themes)
 
-Here's a less space-consuming list of the settings available in the theme options: *Background Color, Background Image, Tiled Background Image, Blog Title Color, Text Color, Link Color, Meta Text Color, Search Bar And Horizontal Line Between Posts Color, Blockquote Border Color, Blockquote Inside Blockquote Border Color, Blockquote Level 3 Border Color, Blockquote Level 4 Border Color, Blockquote Level 5 Border Color, Odd Chat Lines Color, Even Chat Lines Color, Fixed Sidebar, Infinite Scrolling, Wide Content Column, Small Avatar, Show Avatar, Show Search Bar, Show Random Link, Show Archive Link, Show Likes Link, Show Group Members, Show Blogs You Follow, Show Tags On Index Pages, Show Author On Permalink Pages, Show Notes, Disqus Shortname, Google Analytics ID, Show Theme Credit In Sidebar*
+Here's a less space-consuming list of the settings available in the theme options: *Background Color, Background Image, Tiled Background Image, Blog Title Color, Text Color, Link Color, Meta Text Color, Search Bar And Horizontal Line Between Posts Color, Blockquote Border Color, Blockquote Inside Blockquote Border Color, Blockquote Level 3 Border Color, Blockquote Level 4 Border Color, Blockquote Level 5 Border Color, Odd Chat Lines Color, Even Chat Lines Color, Fixed Sidebar, Infinite Scrolling, Wide Content Column, Small Avatar, Show Avatar, Show Search Bar, Show Random Link, Show Archive Link, Show Likes Link, Show Group Members, Show Blogs You Follow, Show Tags On Index Pages, Show Like And Reblog Buttons On Index Pages, Show Author On Permalink Pages, Show Notes, Disqus Shortname, Google Analytics ID, Show Theme Credit In Sidebar*
 
 These settings allow you to completely transform the look of the theme, as you can see in the screenshots.
 
 If you have any questions or suggestions, please don't hesitate to [send me a message over at the demo blog](http://minimaxtheme.tumblr.com/ask).
 
 ## Changelog
+
+### Version 11 (2015-02-22)
+* Added like and reblog buttons on index pages at [iluvfksy](http://iluvfksy.tumblr.com)'s request
 
 ### Version 10 (2014-12-28)
 * Changed the avatar to link to the blog index
