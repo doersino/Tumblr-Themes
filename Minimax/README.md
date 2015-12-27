@@ -27,6 +27,9 @@ If you have any questions or suggestions, please don't hesitate to [send me a me
 
 ## Changelog
 
+### Version 12 (2015-12-27)
+* Un-broke infinite scrolling
+
 ### Version 11 (2015-02-22)
 * Added like and reblog buttons on index pages at [iluvfksy](http://iluvfksy.tumblr.com)'s request
 
