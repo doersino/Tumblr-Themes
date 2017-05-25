@@ -27,6 +27,9 @@ If you have any questions or suggestions, please don't hesitate to [send me a me
 
 ## Changelog
 
+### Version 13 (2017-0525)
+* Fixed `<abbr>` underline in newer versions of Chrome
+
 ### Version 12 (2015-12-27)
 * Un-broke infinite scrolling
 
