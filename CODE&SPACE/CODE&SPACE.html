@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{block:PermalinkPage}{block:Posts}{block:PostSummary}{PostSummary} - {/block:PostSummary}{/block:Posts}{block:PermalinkPage}{Title}</title>
+        {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <meta name="color:Background Color" content="#ffffff">
+        <meta name="color:Accent Color" content="#000000">
+        <meta name="color:Inline Code Background Color" content="#eee">
+        <meta name="select:Code Theme" content="default.min.css" title="default.css">
+        <meta name="select:Code Theme" content="agate.min.css" title="agate.css">
+        <meta name="select:Code Theme" content="androidstudio.min.css" title="androidstudio.css">
+        <meta name="select:Code Theme" content="arduino-light.min.css" title="arduino-light.css">
+        <meta name="select:Code Theme" content="arta.min.css" title="arta.css">
+        <meta name="select:Code Theme" content="ascetic.min.css" title="ascetic.css">
+        <meta name="select:Code Theme" content="atelier-cave-dark.min.css" title="atelier-cave-dark.css">
+        <meta name="select:Code Theme" content="atelier-cave-light.min.css" title="atelier-cave-light.css">
+        <meta name="select:Code Theme" content="atelier-dune-dark.min.css" title="atelier-dune-dark.css">
+        <meta name="select:Code Theme" content="atelier-dune-light.min.css" title="atelier-dune-light.css">
+        <meta name="select:Code Theme" content="atelier-estuary-dark.min.css" title="atelier-estuary-dark.css">
+        <meta name="select:Code Theme" content="atelier-estuary-light.min.css" title="atelier-estuary-light.css">
+        <meta name="select:Code Theme" content="atelier-forest-dark.min.css" title="atelier-forest-dark.css">
+        <meta name="select:Code Theme" content="atelier-forest-light.min.css" title="atelier-forest-light.css">
+        <meta name="select:Code Theme" content="atelier-heath-dark.min.css" title="atelier-heath-dark.css">
+        <meta name="select:Code Theme" content="atelier-heath-light.min.css" title="atelier-heath-light.css">
+        <meta name="select:Code Theme" content="atelier-lakeside-dark.min.css" title="atelier-lakeside-dark.css">
+        <meta name="select:Code Theme" content="atelier-lakeside-light.min.css" title="atelier-lakeside-light.css">
+        <meta name="select:Code Theme" content="atelier-plateau-dark.min.css" title="atelier-plateau-dark.css">
+        <meta name="select:Code Theme" content="atelier-plateau-light.min.css" title="atelier-plateau-light.css">
+        <meta name="select:Code Theme" content="atelier-savanna-dark.min.css" title="atelier-savanna-dark.css">
+        <meta name="select:Code Theme" content="atelier-savanna-light.min.css" title="atelier-savanna-light.css">
+        <meta name="select:Code Theme" content="atelier-seaside-dark.min.css" title="atelier-seaside-dark.css">
+        <meta name="select:Code Theme" content="atelier-seaside-light.min.css" title="atelier-seaside-light.css">
+        <meta name="select:Code Theme" content="atelier-sulphurpool-dark.min.css" title="atelier-sulphurpool-dark.css">
+        <meta name="select:Code Theme" content="atelier-sulphurpool-light.min.css" title="atelier-sulphurpool-light.css">
+        <meta name="select:Code Theme" content="atom-one-dark.min.css" title="atom-one-dark.css">
+        <meta name="select:Code Theme" content="atom-one-light.min.css" title="atom-one-light.css">
+        <meta name="select:Code Theme" content="brown-paper.min.css" title="brown-paper.css">
+        <meta name="select:Code Theme" content="codepen-embed.min.css" title="codepen-embed.css">
+        <meta name="select:Code Theme" content="color-brewer.min.css" title="color-brewer.css">
+        <meta name="select:Code Theme" content="darcula.min.css" title="darcula.css">
+        <meta name="select:Code Theme" content="dark.min.css" title="dark.css">
+        <meta name="select:Code Theme" content="darkula.min.css" title="darkula.css">
+        <meta name="select:Code Theme" content="docco.min.css" title="docco.css">
+        <meta name="select:Code Theme" content="dracula.min.css" title="dracula.css">
+        <meta name="select:Code Theme" content="far.min.css" title="far.css">
+        <meta name="select:Code Theme" content="foundation.min.css" title="foundation.css">
+        <meta name="select:Code Theme" content="github-gist.min.css" title="github-gist.css">
+        <meta name="select:Code Theme" content="github.min.css" title="github.css">
+        <meta name="select:Code Theme" content="googlecode.min.css" title="googlecode.css">
+        <meta name="select:Code Theme" content="grayscale.min.css" title="grayscale.css">
+        <meta name="select:Code Theme" content="gruvbox-dark.min.css" title="gruvbox-dark.css">
+        <meta name="select:Code Theme" content="gruvbox-light.min.css" title="gruvbox-light.css">
+        <meta name="select:Code Theme" content="hopscotch.min.css" title="hopscotch.css">
+        <meta name="select:Code Theme" content="hybrid.min.css" title="hybrid.css">
+        <meta name="select:Code Theme" content="idea.min.css" title="idea.css">
+        <meta name="select:Code Theme" content="ir-black.min.css" title="ir-black.css">
+        <meta name="select:Code Theme" content="kimbie.dark.min.css" title="kimbie.dark.css">
+        <meta name="select:Code Theme" content="kimbie.light.min.css" title="kimbie.light.css">
+        <meta name="select:Code Theme" content="magula.min.css" title="magula.css">
+        <meta name="select:Code Theme" content="mono-blue.min.css" title="mono-blue.css">
+        <meta name="select:Code Theme" content="monokai-sublime.min.css" title="monokai-sublime.css">
+        <meta name="select:Code Theme" content="monokai.min.css" title="monokai.css">
+        <meta name="select:Code Theme" content="obsidian.min.css" title="obsidian.css">
+        <meta name="select:Code Theme" content="ocean.min.css" title="ocean.css">
+        <meta name="select:Code Theme" content="paraiso-dark.min.css" title="paraiso-dark.css">
+        <meta name="select:Code Theme" content="paraiso-light.min.css" title="paraiso-light.css">
+        <meta name="select:Code Theme" content="pojoaque.min.css" title="pojoaque.css">
+        <meta name="select:Code Theme" content="purebasic.min.css" title="purebasic.css">
+        <meta name="select:Code Theme" content="qtcreator_dark.min.css" title="qtcreator_dark.css">
+        <meta name="select:Code Theme" content="qtcreator_light.min.css" title="qtcreator_light.css">
+        <meta name="select:Code Theme" content="railscasts.min.css" title="railscasts.css">
+        <meta name="select:Code Theme" content="rainbow.min.css" title="rainbow.css">
+        <meta name="select:Code Theme" content="routeros.min.css" title="routeros.css">
+        <meta name="select:Code Theme" content="school-book.min.css" title="school-book.css">
+        <meta name="select:Code Theme" content="solarized-dark.min.css" title="solarized-dark.css">
+        <meta name="select:Code Theme" content="solarized-light.min.css" title="solarized-light.css">
+        <meta name="select:Code Theme" content="sunburst.min.css" title="sunburst.css">
+        <meta name="select:Code Theme" content="tomorrow-night-blue.min.css" title="tomorrow-night-blue.css">
+        <meta name="select:Code Theme" content="tomorrow-night-bright.min.css" title="tomorrow-night-bright.css">
+        <meta name="select:Code Theme" content="tomorrow-night-eighties.min.css" title="tomorrow-night-eighties.css">
+        <meta name="select:Code Theme" content="tomorrow-night.min.css" title="tomorrow-night.css">
+        <meta name="select:Code Theme" content="tomorrow.min.css" title="tomorrow.css">
+        <meta name="select:Code Theme" content="vs.min.css" title="vs.css">
+        <meta name="select:Code Theme" content="vs2015.min.css" title="vs2015.css">
+        <meta name="select:Code Theme" content="xcode.min.css" title="xcode.css">
+        <meta name="select:Code Theme" content="xt256.min.css" title="xt256.css">
+        <meta name="select:Code Theme" content="zenburn.min.css" title="zenburn.css">
+        <meta name="if:Show Avatar" content="0">
+        <meta name="if:Show Search Bar" content="0">
+        <meta name="text:Google Analytics ID" content="">
+        {block:IfGoogleAnalyticsID}
+            <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                ga('create', '{text:Google Analytics ID}', 'tumblr.com');
+                ga('send', 'pageview');
+            </script>
+        {/block:IfGoogleAnalyticsID}
+        <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/{select:Code Theme}">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <style type="text/css" media="all">
+            /*
+            CODE&SPACE Tumblr Theme by Noah Doersing
+            https://www.tumblr.com/themes/by/noahdoersing
+            https://github.com/doersino/Tumblr-Themes
+            You may use, modify and/or share this theme only in accordance with the
+            following license (TL;DR: don't remove this notice and don't sue me):
+            The MIT License (MIT)
+            Copyright (c) 2017 Noah Doersing
+            Permission is hereby granted, free of charge, to any person obtaining a copy
+            of this software and associated documentation files (the "Software"), to deal
+            in the Software without restriction, including without limitation the rights
+            to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+            copies of the Software, and to permit persons to whom the Software is
+            furnished to do so, subject to the following conditions:
+            The above copyright notice and this permission notice shall be included in
+            all copies or substantial portions of the Software.
+            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+            AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+            OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+            THE SOFTWARE.
+            */
+
+            * {
+                margin: 0;
+                padding: 0;
+                font-weight: normal;
+                list-style-type: none;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: 'Space Mono', monospace;
+                max-width: 700px;
+                margin: auto;
+                background-color: {color:Background Color};
+            }
+            header, footer, article {
+                margin: 4em auto;
+            }
+            header, footer {
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            /* elements */
+            a {
+                text-decoration: none;
+                color: white;
+                background-color: {color:Accent Color};
+                padding: 0 1px;
+            }
+            a:hover {
+                font-style: italic;
+            }
+
+            /* header */
+            header {
+                transform: scale(1) rotate(0deg) translate(0px, 0px) skew(15deg, 0deg);
+                text-align: left;
+                padding: 0.6em;
+            }
+            h1 {
+                font-size: inherit;
+                padding: 0 2em;
+                background-color: {color:Accent Color};
+                {block:IfShowAvatar}
+                    background: {color:Accent Color} url({PortraitURL-128}) no-repeat top right;
+                {/block:IfShowAvatar}
+                min-height: 128px;
+            }
+            h1 a {
+                display: inline-block;
+                font-size: 4.85em;
+                background-color: transparent;
+                line-height: 1em;
+                padding: 0.27em 0 0.25em;
+            }
+            h1 a:hover, nav a:hover {
+                transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-15deg, 0deg);
+                font-style: normal;
+            }
+            h1 > span {
+                color: white;
+                display: inline-block;
+                padding-bottom: 1.5em;
+                text-transform: none;
+            }
+            h1 > span:empty {
+                display: none;
+            }
+            nav ul {
+                margin-top: 0.6em;
+            }
+            nav li {
+                display: inline-block;
+                background-color: {color:Accent Color};
+                /*margin-right: 0.65em;*/
+            }
+            nav a, nav input {
+                display: inline-block;
+                padding: 0.4em 0.6em;
+                background-color: transparent;
+            }
+            nav input {
+                border: 0;
+                font: inherit;
+                color: white;
+                text-transform: uppercase;
+                outline: none;
+                width: 12em;
+            }
+            nav input[type="submit"] {
+                display: none;
+            }
+            ::-webkit-input-placeholder {
+                color: white;
+                opacity: 0.5;
+            }
+            :-ms-input-placeholder {
+                color: white;
+                opacity: 0.5;
+            }
+            ::-moz-placeholder {
+                color: white;
+                opacity: 0.5;
+            }
+            :-moz-placeholder {
+                color: white;
+                opacity: 0.5;
+            }
+
+            /* posts */
+            article {
+                background-color: white;
+                box-shadow: 0px 0px 0px 20px white;
+            }
+            h2, h3, p, blockquote, .media, .source, .photoset, pre, .audioplayer, article ul, article ol {
+                margin-bottom: 1rem;
+            }
+            strong, strong em {
+                font-weight: bold;
+            }
+            article.photo > a:first-child {
+                background-color: transparent;
+            }
+            img.media {
+                width: 100%;
+            }
+            article.audio .media {
+                border: 30px solid {color:Accent Color};
+            }
+            blockquote {
+                border-left: 2px solid {color:Accent Color};
+                padding-left: 1em;
+            }
+            blockquote.quote {
+                font-size: 1.5em;
+                font-style: italic;
+                border: 0;
+                padding: 0;
+            }
+            code {
+                background-color: {color:Inline Code Background Color};
+                padding: 0 4px;
+                font-family: inherit;
+                font-variant-ligatures: none;
+            }
+            pre {
+                font-family: inherit;
+                background-color: {color:Inline Code Background Color}; /* fallback in case the highlight.js cdn breaks */
+            }
+            .tmblr-attribution {
+                font-size: 0.7em;
+                margin-top: -2.2em;
+                margin-left: 0.2em;
+            }
+            .audioplayer {
+                height: 300px;
+                background-color: {color:Accent Color};
+                color: white;
+            }
+            .audioplayer img {
+                width: 300px;
+                float: left;
+            }
+            .audioplayer .rest {
+                float: left;
+                margin: 32px;
+                width: 336px;
+            }
+            .audioplayer iframe {
+                width: 336px !important;
+                margin-bottom: 16px;
+                opacity: 0.9;
+            }
+            .audioplayer span {
+                font-size: 1.5em;
+            }
+            article ul li {
+                list-style-type: square;
+                margin-left: 1.3em;
+            }
+            article ol li {
+                list-style-type: decimal;
+                margin-left: 1.85em;
+            }
+
+            /* meta */
+            aside.indexpage {
+                color: #bbb;
+                text-transform: uppercase;
+            }
+            aside.indexpage a {
+                background-color: transparent;
+                color: inherit;
+                padding: 0;
+            }
+            aside.permalinkpage {
+                width: 100vw;
+                background: {color:Accent Color};
+                position: absolute;
+                left: 0;
+                margin-top: 4rem;
+                padding: 3em calc((100vw - 700px) / 2);
+                color: white;
+            }
+            aside.permalinkpage p, aside.permalinkpage ol {
+                text-transform: uppercase;
+            }
+            aside.permalinkpage a {
+                padding: 0;
+            }
+            aside.permalinkpage .notes img {
+                margin-right: 0.5em;
+            }
+            aside.permalinkpage .notes blockquote {
+                padding-left: 1.4em;
+                margin-bottom: 0;
+            }
+            p.top {
+                margin-top: 2em;
+                text-align: right;
+            }
+            p.top span {
+                font-size: 1.3em;
+            }
+            .actions {
+                margin-bottom: 0.5em;
+            }
+            .like_button, .reblog_button {
+                display: inline-block !important;
+                margin-right: 0.5em;
+            }
+            aside.permalinkpage li {
+                margin-left: 0;
+                list-style-type: none;
+            }
+
+            /* footer */
+            footer li {
+                display: inline-block;
+            }
+            footer a {
+                color: black;
+                background: transparent;
+            }
+
+            /* custom */
+            {CustomCSS}
+        </style>
+    </head>
+    <body id="top">
+        <header>
+            <h1><a href="/">{Title}</a><br><span>{Description}</span></h1>
+            <nav>
+                <ul>
+                    {block:HasPages}
+                        {block:Pages}
+                            <li><a href="{URL}">{Label}</a></li>
+                        {/block:Pages}
+                    {/block:HasPages}
+                    {block:AskEnabled}
+                        <li><a href="/ask">{AskLabel}</a></li>
+                    {/block:AskEnabled}
+                    {block:SubmissionsEnabled}
+                        <li><a href="/submit">{SubmitLabel}</a></li>
+                    {/block:SubmissionsEnabled}
+                    {block:IfShowSearchBar}
+                        <li>
+                            <form action="/search" method="get">
+                                <input type="text" name="q" value="{SearchQuery}" placeholder="{lang:Search}...">
+                                <input type="submit" value="Search">
+                            </form>
+                        </li>
+                    {/block:IfShowSearchBar}
+                </ul>
+            </nav>
+        </header>
+        <section>
+            {block:Posts}
+                <article class="{PostType} {PostID}{block:HasTags}{block:Tags} tag-{URLSafeTag}{/block:Tags}{/block:HasTags}">
+                    {block:Text}
+                        {block:Title}
+                            <h2><a href="{Permalink}">{Title}</a></h2>
+                        {/block:Title}
+                        {Body}
+                    {/block:Text}
+
+                    {block:Photo}
+                        {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="media">{LinkCloseTag}
+                        {block:Caption}{Caption}{/block:Caption}
+                    {/block:Photo}
+
+                    {block:Photoset}
+                        {Photoset-700}
+                        {block:Caption}{Caption}{/block:Caption}
+                    {/block:Photoset}
+
+                    {block:Quote}
+                        <blockquote class="quote">{Quote}</blockquote>
+                        {block:Source}<div class="source">{Source}</div>{/block:Source}
+                    {/block:Quote}
+
+                    {block:Link}
+                        <h2><a href="{URL}" {Target}>{Name}</a> -></h2>
+                        {block:Description}{Description}{/block:Description}
+                    {/block:Link}
+
+                    {block:Chat}
+                        {block:Title}<h2><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+                        {block:Lines}
+                            <p>{block:Label}<em>{Label}</em>{/block:Label} {Line}</p>
+                        {/block:Lines}
+                    {/block:Chat}
+
+                    {block:Audio}
+                        {block:AudioEmbed}
+                            <div class="media">
+                                {AudioEmbed-640}
+                            </div>
+                        {/block:AudioEmbed}
+                        {block:AudioPlayer}
+                            <div class="audioplayer">
+                                {block:AlbumArt}
+                                    <img src="{AlbumArtURL}">
+                                {/block:AlbumArt}
+                                <div class="rest">
+                                    {AudioPlayer}
+                                    {block:TrackName}
+                                        <span>{TrackName}</span><br>
+                                    {/block:TrackName}
+                                    {block:Artist}
+                                        <em>by</em> {Artist}<br>
+                                    {/block:Artist}
+                                    {block:Album}
+                                        <em>on</em> {Album}<br>
+                                    {/block:Album}
+                                </div>
+                            </div>
+                        {/block:AudioPlayer}
+                        {block:Caption}{Caption}{/block:Caption}
+                    {/block:Audio}
+
+                    {block:Video}
+                        <div class="media">{Video-700}</div>
+                        {block:Caption}{Caption}{/block:Caption}
+                    {/block:Video}
+
+                    {block:Answer}
+                        <h2><em>{Asker}:</em> {Question}</h2>
+                        {Answer}
+                    {/block:Answer}
+
+                    {block:Date}
+                        <aside {block:IndexPage}class="indexpage"{/block:IndexPage} {block:PermalinkPage}class="permalinkpage"{/block:PermalinkPage}>
+                            <p>
+                                <a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">{lang:TimeAgo with NoteCount notes}</a>
+                                {block:RebloggedFrom}
+                                    |
+                                    <a href="{ReblogParentURL}">{lang:Via} {ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+                                {block:ContentSource}
+                                    |
+                                    <a href="{SourceURL}">{lang:Source}</a>
+                                {/block:ContentSource}
+                            </p>
+                            {block:PermalinkPage}
+                                <div class="actions">
+                                    {LikeButton color="white"}
+                                    {ReblogButton color="white"}
+                                </div>
+                                {block:Exif}
+                                    <ul class="exif">
+                                        {block:Camera}
+                                            <li>Camera: {Camera}</li>
+                                        {/block:Camera}
+                                        {block:ISO}
+                                            <li>ISO: {ISO}</li>
+                                        {/block:ISO}
+                                        {block:Aperture}
+                                            <li>Aperture: {Aperture}</li>
+                                        {/block:Aperture}
+                                        {block:Exposure}
+                                            <li>Exposure: {Exposure}</li>
+                                        {/block:Exposure}
+                                        {block:FocalLength}
+                                        <li>Focal Length: {FocalLength}</li>
+                                        {/block:FocalLength}
+                                    </ul>
+                                {/block:Exif}
+                                <p>{PlayCountWithLabel}</p>
+                                {block:HasTags}
+                                    <ul>
+                                        {block:Tags}<li><a href="{TagURL}">#{Tag}</a></li>{/block:Tags}
+                                    </ul>
+                                {/block:HasTags}
+                                {PostNotes-16}
+                                <p class="top"><a href="#top">beam me up <span>/></span></a></p>
+                            {/block:PermalinkPage}
+                        </aside>
+                    {/block:Date}
+                </article>
+            {/block:Posts}
+        </section>
+        <footer>
+            <ul>
+                {block:PreviousPage}<li><a href="{PreviousPage}"><- {lang:Newer}</a></li>{/block:PreviousPage}
+                {block:PreviousPage}{block:NextPage}|{/block:NextPage}{/block:PreviousPage}
+                {block:NextPage}<li><a href="{NextPage}">{lang:Older} -></a></li>{/block:NextPage}
+            </ul>
+        </footer>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>
