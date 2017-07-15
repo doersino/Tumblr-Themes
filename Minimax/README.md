@@ -27,6 +27,9 @@ If you have any questions or suggestions, please don't hesitate to [send me a me
 
 ## Changelog
 
+### Version 14 (2017-07-14)
+* Fixed font not loading over HTTPS
+
 ### Version 13 (2017-05-25)
 * Fixed `<abbr>` underline in newer versions of Chrome
 
