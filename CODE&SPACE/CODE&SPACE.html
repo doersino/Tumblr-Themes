@@ -89,8 +89,8 @@
         <meta name="select:Code Theme" content="xcode.min.css" title="xcode.css">
         <meta name="select:Code Theme" content="xt256.min.css" title="xt256.css">
         <meta name="select:Code Theme" content="zenburn.min.css" title="zenburn.css">
-        <meta name="if:Show Avatar" content="0">
-        <meta name="if:Show Search Bar" content="0">
+        <meta name="if:Show Avatar" content="1">
+        <meta name="if:Show Search Bar" content="1">
         <meta name="text:Google Analytics ID" content="">
         {block:IfGoogleAnalyticsID}
             <script>
@@ -157,7 +157,6 @@
                 text-decoration: none;
                 color: white;
                 background-color: {color:Accent Color};
-                padding: 0 1px;
             }
             a:hover {
                 font-style: italic;
@@ -204,7 +203,7 @@
             nav li {
                 display: inline-block;
                 background-color: {color:Accent Color};
-                /*margin-right: 0.65em;*/
+                margin-bottom: 0.6em;
             }
             nav a, nav input {
                 display: inline-block;
@@ -215,7 +214,6 @@
                 border: 0;
                 font: inherit;
                 color: white;
-                text-transform: uppercase;
                 outline: none;
                 width: 12em;
             }
@@ -225,18 +223,22 @@
             ::-webkit-input-placeholder {
                 color: white;
                 opacity: 0.5;
+                text-transform: uppercase;
             }
             :-ms-input-placeholder {
                 color: white;
                 opacity: 0.5;
+                text-transform: uppercase;
             }
             ::-moz-placeholder {
                 color: white;
                 opacity: 0.5;
+                text-transform: uppercase;
             }
             :-moz-placeholder {
                 color: white;
                 opacity: 0.5;
+                text-transform: uppercase;
             }
 
             /* posts */
@@ -247,7 +249,7 @@
             h2, h3, p, blockquote, .media, .source, .photoset, pre, .audioplayer, article ul, article ol {
                 margin-bottom: 1rem;
             }
-            strong, strong em {
+            strong, strong em, b, b em {
                 font-weight: bold;
             }
             article.photo > a:first-child {
@@ -255,6 +257,9 @@
             }
             img.media {
                 width: 100%;
+            }
+            article img {
+                max-width: 100%;
             }
             article.audio .media {
                 border: 30px solid {color:Accent Color};
@@ -271,13 +276,18 @@
             }
             code {
                 background-color: {color:Inline Code Background Color};
-                padding: 0 4px;
+                padding: 0 0.32em;
                 font-family: inherit;
                 font-variant-ligatures: none;
             }
             pre {
                 font-family: inherit;
                 background-color: {color:Inline Code Background Color}; /* fallback in case the highlight.js cdn breaks */
+            }
+            hr {
+                border: 1px solid black;
+                width: 50%;
+                margin: 2em auto;
             }
             .tmblr-attribution {
                 font-size: 0.7em;
@@ -323,7 +333,6 @@
             aside.indexpage a {
                 background-color: transparent;
                 color: inherit;
-                padding: 0;
             }
             aside.permalinkpage {
                 width: 100vw;
@@ -331,7 +340,7 @@
                 position: absolute;
                 left: 0;
                 margin-top: 4rem;
-                padding: 3em calc((100vw - 700px) / 2);
+                padding: 3em calc((100vw - 700px) / 2) 2em;
                 color: white;
             }
             aside.permalinkpage p, aside.permalinkpage ol {
@@ -359,7 +368,6 @@
             }
             .like_button, .reblog_button {
                 display: inline-block !important;
-                margin-right: 0.5em;
             }
             aside.permalinkpage li {
                 margin-left: 0;

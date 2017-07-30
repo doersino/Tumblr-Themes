@@ -17,5 +17,15 @@ If you have any questions or suggestions, please don't hesitate to [file an issu
 
 ## Changelog
 
+### Version 2 (2017-07-30)
+* Show avatar and search bar by default
+* Fix inline code and link padding
+* Adjust space between like and reblog buttons
+* Add style for horizontal rule
+* Make search query not capitalized while keeping the placeholder capitalized
+* Set a sensible maximum width for images in articles
+* Make multiline navigation bars (e.g. due to lots of pages) have proper spacing
+* Copy styles of `<strong>` tag to `<b>` tag (Tumblr seems to use `<b>` sometimes)
+
 ### Version 1 (2017-07-14)
 * Initial release
