@@ -1,0 +1,6 @@
+add head tag
+lists in articles
+Disqus comments enableable via option and/or tag ( http://disqus.com/admin/tumblr/ )
+gotta make text-indent optional
+ff-test, ie-test
+{CustomCSS}

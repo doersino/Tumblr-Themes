@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- TODO
+	use CSS to get icon from URL: .masthead .links .social li a[href*="bandcamp"]:before {}
+	look at Screenshots in dropbox
+	license -> license.md, changelog format
+	search
+	responsive -->
+	<meta charset="UTF-8">
+	<title>
+		{block:DayPage}
+			{lang:Viewing everything posted on Month DayOfMonth Year} -
+		{/block:DayPage}
+		{block:TagPage}
+			{lang:Showing TagResultCount posts tagged Tag} -
+		{/block:TagPage}
+		{block:SearchPage}
+			{lang:Found SearchResultCount results for SearchQuery}
+			{lang:Sorry no results for SearchQuery} -
+		{/block:SearchPage}
+		{block:PostSummary}
+			{PostSummary} -
+		{/block:PostSummary}
+		{Title}
+	</title>
+	{block:Description}
+		<meta name="description" content="{MetaDescription}" />
+	{/block:Description}
+	<link rel="shortcut icon" href="{Favicon}">
+	<link rel="apple-touch-icon" href="{PortraitURL-128}">
+	<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Chivo:400,900">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+	<style>
+	/* GENERAL */
+	* {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		-webkit-font-smoothing: antialiased;
+	}
+	html {
+		font-size: 24px;
+	}
+	body {
+		font-family: Lora, "Times New Roman", serif;
+	}
+	h1,
+	h2,
+	h3,
+	.tags {
+		font-family: Chivo, Helvetica, Arial, sans-serif;
+	}
+	a:hover {
+		opacity: .5;
+	}
+	hr {
+		border: 0;
+		margin: .5rem 0;
+	}
+	hr:before {
+		content: "\2014";
+	}
+
+	/* COLUMNS */
+	.row {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+	}
+	.cell {
+		display: table-cell;
+		vertical-align: top;
+	}
+	.narrow {
+		width: 12rem;
+	}
+	.centered_content {
+		display: block;
+		margin: 0 auto;
+		padding: 4rem 2rem;
+		max-width: calc(700px + 4rem);
+	}
+
+	/* HEADER */
+	.masthead {
+		background-color: #235;
+		color: white;
+		text-align: center;
+	}
+	.masthead a {
+		color: inherit;
+		text-decoration: none;
+	}
+	.masthead .title {
+		vertical-align: middle;
+		padding: 4rem;
+		overflow-x: scroll;
+	}
+	.masthead .title h1 {
+		font-size: 3rem;
+		letter-spacing: -.1rem;
+	}
+	.masthead .title p {
+		margin-top: 2rem;
+	}
+	.masthead .title p a {
+		text-decoration: underline;
+	}
+	.masthead .links {
+		vertical-align: middle;
+		padding: 4rem 2rem;
+		background-color: rgba(255,255,255,.1);
+	}
+	.masthead .links .pages a {
+		font-weight: bold;
+		font-style: italic;
+	}
+	.masthead .links .social {
+		display: inline-block;
+		font-size: .75rem;
+	}
+	.masthead .links .social li {
+		display: inline;
+		margin: 0 .15rem;
+	}
+
+	/* POSTS */
+	article:nth-child(even) {
+		background-color: rgba(0,0,0,.1);
+	}
+	article:nth-child(odd) {
+		background-color: rgba(0,0,0,.15);
+	}
+	.post_content p,
+	.post_content h2,
+	.post_content h3,
+	.post_content ul,
+	.post_content ol,
+	.post_content > img,
+	.post_content > a img,
+	.post_content > div.html_photoset,
+	.post_content > iframe,
+	.post_content blockquote,
+	.post_content .audio_player {
+		margin-bottom: 1rem;
+	}
+	.post_content img {
+		max-width: 100%;
+	}
+	.post_content img.wide {
+		width: 100%;
+	}
+	.post_content a {
+		color: inherit;
+	}
+	.post_content h2 {
+		font-size: 1.5em;
+	}
+	.post_content h2 a {
+		text-decoration: none;
+	}
+	.post_content .tags {
+		margin-top: 4rem;
+	}
+	.post_content .tags li {
+		display: inline;
+		font-size: .6rem;
+	}
+	.post_content .tags li a {
+		display: inline-block;
+		margin-bottom: .33em;
+		padding: .33em .5em;
+		background-color: white;
+		border-radius: 3px;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-family: Chivo;
+	}
+	.post_sidebar {
+		font-size: .67rem;
+		text-align: center;
+		color: rgba(0,0,0,.6);
+		background-color: rgba(0,0,0,.1);
+	}
+	.post_sidebar .permalink {
+		display: block;
+		width: 100%;
+		padding: 4rem 2rem;
+		font-weight: bold;
+		background-color: rgba(0,0,0,.1);
+	}
+	.post_sidebar .permalink a {
+		display: inline-block;
+		color: inherit;
+		text-decoration: none;
+	}
+	.post_sidebar .permalink i {
+		padding-bottom: 1em;
+	}
+
+	/* FOOTER */
+	footer {
+		background-color: white;
+		font-size: .67rem;
+	}
+	.post_meta {
+
+	}
+	.post_nav {
+		background-color: rgba(0,0,0,.1);
+		text-align: center;
+		padding: 4rem 2rem;
+	}
+
+	{CustomCSS}
+	</style>
+</head>
+<body>
+	<header class="row masthead">
+		<div class="cell title">
+			<h1><a href="{BlogURL}" title="{lang:Home}">{Title}</a></h1>
+			{block:Description}
+				<p>{Description}</p>
+			{/block:Description}
+		</div>
+		<div class="cell narrow links">
+			<nav>
+				<ul class="pages">
+					{block:HasPages}
+						{block:Pages}
+							<li><a href="{URL}">{Label}</a></li>
+						{/block:Pages}
+					{/block:HasPages}
+					{block:IfShowRandomLink}
+						<li><a href="/random" title="{lang:Random post}">{lang:Random}</a></li>
+					{/block:IfShowRandomLink}
+					{block:IfShowArchiveLink}
+						<li><a href="/archive" title="{lang:Browse the archive}">{lang:Archive}</a></li>
+					{/block:IfShowArchiveLink}
+					{block:IfShowLikesLink}
+						<li><a href="/likes" title="{lang:Liked posts}">{lang:Liked}</a></li>
+					{/block:IfShowLikesLink}
+					{block:AskEnabled}
+						<li><a href="/ask">{AskLabel}</a></li>
+					{/block:AskEnabled}
+					{block:SubmissionsEnabled}
+						<li><a href="/submit">{SubmitLabel}</a></li>
+					{/block:SubmissionsEnabled}
+				</ul>
+				<hr>
+				<ul class="social">
+					<!-- TODO tumblify -->
+					<li><a href="" class="fa fa-home"></a></li>
+					<li><a href="" class="fa fa-twitter"></a></li>
+					<li><a href="" class="fa fa-github"></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	{block:Posts}
+		<article id="post-{PostID}" class="{PostType}{block:HasTags}{block:Tags} tag-{URLSafeTag}{/block:Tags}{/block:HasTags}">
+			<div class="row">
+				<div class="cell post_content">
+					<div class="centered_content">
+						{block:Text}
+							{block:Title}
+								<header>
+									<h2>
+										{block:IndexPage}<a href="{Permalink}" title="{lang:Permalink for this post}">{/block:IndexPage}
+											{Title}
+										{block:IndexPage}</a>{/block:IndexPage}
+									</h2>
+								</header>
+							{/block:Title}
+							{Body}
+						{/block:Text}
+
+						{block:Photo}
+							{LinkOpenTag}
+								<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="wide">
+							{LinkCloseTag}
+							{block:Caption}
+								{Caption}
+							{/block:Caption}
+						{/block:Photo}
+
+						{block:Photoset}
+							{Photoset}
+							{block:Caption}
+								{Caption}
+							{/block:Caption}
+						{/block:Photoset}
+
+						{block:Quote}
+							<header>
+								<blockquote>
+									{Quote}
+								</blockquote>
+							</header>
+							{block:Source}
+								{Source}
+							{/block:Source}
+						{/block:Quote}
+
+						{block:Link}
+							<header>
+								<h2><span>&raquo;&rarr;&nbsp;</span> <a href="{URL}" {Target}>{Name}</a></h2>
+							</header>
+							{block:Description}
+								{Description}
+							{/block:Description}
+						{/block:Link}
+
+						{block:Chat}
+							{block:Title}
+								<header>
+									<h2>
+										{block:IndexPage}<a href="{Permalink}" title="{lang:Permalink for this post}">{/block:IndexPage}
+											{Title}
+										{block:IndexPage}</a>{/block:IndexPage}
+									</h2>
+								</header>
+							{/block:Title}
+							<ol class="chat">
+								{block:Lines}
+									<li class="{Alt}">
+										{block:Label}
+											<strong>{Label}</strong>
+										{/block:Label}
+										{Line}
+									</li>
+								{/block:Lines}
+							</ol>
+						{/block:Chat}
+
+						{block:Audio}
+							{block:AudioEmbed}
+								{block:IfWideContentColumn}
+									{AudioEmbed-640}
+								{/block:IfWideContentColumn}
+								{block:IfNotWideContentColumn}
+									{AudioEmbed-500}
+								{/block:IfNotWideContentColumn}
+							{/block:AudioEmbed}
+							{block:Caption}
+								{Caption}
+							{/block:Caption}
+						{/block:Audio}
+
+						{block:Video}
+							{VideoEmbed-700}
+							{block:Caption}
+								{Caption}
+							{/block:Caption}
+						{/block:Video}
+
+						{block:Answer}
+							<header>
+								<h2><strong>{lang:Asker asked 2}:</strong> {Question}</h2>
+							</header>
+							{block:Answerer}
+								<p>{Answerer}
+									<!-- there's no translation available for this
+									(as well as some stuff further down the page),
+									and I only know German and English -->
+									{block:German}antwortete:{/block:German}
+									{block:NotGerman}answered:{/block:NotGerman}
+								</p>
+								<blockquote>
+									{Answer}
+								</blockquote>
+							{/block:Answerer}
+							{Replies}
+						{/block:Answer}
+
+						{block:HasTags}
+							<div class="tags">
+								<ul>
+									<!-- TODO add hash via css -->
+									{block:Tags}
+										<li><a href="{TagURL}">{Tag}</a></li>
+									{/block:Tags}
+								</ul>
+							</div>
+						{/block:HasTags}
+					</div>
+				</div>
+				<aside class="cell narrow post_sidebar">
+					<div class="permalink">
+						<h4><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}"><i class="fa fa-clock-o"></i><br> {TimeAgo}<br> {NoteCountWithLabel}</a></h4>
+					</div>
+				</aside>
+			</div>
+			{block:Date}
+				{block:PermalinkPage}
+					<footer class="row">
+						<section class="cell post_meta">
+							<div class="centered_content">
+								<p>Reblogged from <a href="http://minimaxtheme.tumblr.com/post/95012242878/hey-there-this-blog-demoes-minimax-a-minimalist">minimaxtheme</a></p>
+								notes go here
+							</div>
+						</section>
+						<section class="cell narrow post_nav">
+							<p>prev next</p>
+						</section>
+					</footer>
+				{/block:PermalinkPage}
+			{/block:Date}
+		</article>
+	{/block:Posts}
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="color:Page Background" content="#dddddd">
+		<meta name="color:Posts Background" content="#eeeeee">
+		<meta name="color:Posts Inset Shadow" content="#f8f8f8">
+		<meta name="color:Posts Border" content="#cccccc">
+		<meta name="color:Text Font" content="#000000">
+		<meta name="color:Links Font" content="#000000">
+		<meta name="color:Posts Meta Font" content="#999999">
+		<meta name="if:Show Tags" content="1">
+		<meta name="if:Show Notes" content="0">
+		<meta name="text:Page Background Image" content="http://static.tumblr.com/2bik29s/yoemmck0a/untitled-1.png">
+		<meta name="text:Font Size" content="16">
+
+		<meta name="if:Show random link" content="1">
+		<meta name="if:Show archive link" content="1">
+
+		<meta charset="UTF-8">
+		<title>
+			{block:PostSummary}
+				{PostSummary} -
+			{/block:PostSummary}
+			{Title}
+		</title>
+		{block:Description}
+			<meta name="description" content="{MetaDescription}" />
+		{/block:Description}
+		<link rel="shortcut icon" href="{Favicon}">
+		<link rel="apple-touch-icon" href="{PortraitURL-128}">
+		<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+		<style type="text/css" media="all">
+			/*
+
+			The MIT License (MIT)
+
+			Copyright (c) 2014 Noah Doersing
+
+			Permission is hereby granted, free of charge, to any person obtaining a copy
+			of this software and associated documentation files (the "Software"), to deal
+			in the Software without restriction, including without limitation the rights
+			to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+			copies of the Software, and to permit persons to whom the Software is
+			furnished to do so, subject to the following conditions:
+
+			The above copyright notice and this permission notice shall be included in
+			all copies or substantial portions of the Software.
+
+			THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+			IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+			FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+			AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+			LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+			OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+			THE SOFTWARE.
+
+			*/
+
+			/* RESET */
+			@import url('http://static.tumblr.com/vookvsa/0anm3zpfy/html5-reset.css');
+
+			/* GENERAL */
+			* {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+				box-sizing: border-box;
+			}
+			html {
+				font-size: 16px;
+			}
+			body {
+				font-family: Helvetica, Arial, sans-serif;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			/* HEADER */
+			header {
+				background-color: #eee;
+				width: 100%;
+			}
+			/* nav */
+			header nav {
+				font-size: 0;
+				float: left;
+			}
+			header nav li {
+				display: inline-block;
+			}
+			header nav h1 {
+				font-size: 1.3rem;
+				font-weight: bold;
+			}
+			header nav a {
+				height: 5rem;
+				padding: 1.8rem;
+				font-size: 1.3rem;
+				text-decoration: none;
+				color: black;
+				display: inline-block;
+				border-right: 1px solid #ccc;
+				vertical-align: top;
+			}
+			header nav a:hover {
+				background-color: #ddd;
+			}
+			header nav.pagination {
+				float: right;
+			}
+			header nav.pagination a {
+				border-right: none;
+				border-left: 1px solid #ccc;
+			}
+			/* search bar */
+			header form {
+				width: 100%;
+				display: inline-block;
+			}
+			header .query {
+				height: 4rem;
+				padding: 1rem 2rem;
+				font-size: 1.3rem;
+				font-family: inherit;
+				outline: none;
+				background-color: #ddd;
+				border: none;
+				width: 100%;
+			}
+			header .submit {
+				display: none;
+			}
+			header a.clear {
+				position: fixed;
+				right: 0;
+				padding: 1.2rem;
+				color: #888;
+				font-size: 1.6rem;
+				text-decoration: none;
+			}
+			header a.clear:hover {
+				color: black;
+			}
+
+			{CustomCSS}
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><h1><a href="/" {block:Description}title="{PlaintextDescription}"{/block:Description}>{Title}</a></h1></li>
+					{block:HasPages}
+						{block:Pages}
+							<li><a href="{URL}">{Label}</a></li>
+						{/block:Pages}
+					{/block:HasPages}
+					{block:IfShowRandomLink}
+						<li><a href="/random">{lang:Random}</a></li>
+					{/block:IfShowRandomLink}
+					{block:IfShowArchiveLink}
+						<li><a href="/archive">{lang:Archive}</a></li>
+					{/block:IfShowArchiveLink}
+					{block:AskEnabled}
+						<li><a href="/ask">{AskLabel}</a></li>
+					{/block:AskEnabled}
+					{block:SubmissionsEnabled}
+						<li><a href="/submit">{SubmitLabel}</a></li>
+					{/block:SubmissionsEnabled}
+				</ul>
+			</nav>
+			<nav class="pagination">
+				<ul>
+					{block:PreviousPage}
+						<li>&larr; <a href="{PreviousPage}">{lang:Newer}</a></li>
+					{/block:PreviousPage}
+					{block:NextPage}
+						<li><a href="{NextPage}">{lang:Older}</a> &rarr;</li>
+					{/block:NextPage}
+				</ul>
+			</nav>
+		</header>
+		<section>
+			{block:Posts}
+				<article class="{PostType} {PostID}{block:HasTags}{block:Tags} tag-{URLSafeTag}{/block:Tags}{/block:HasTags}">
+					{block:Text}
+						{block:Title}
+							<h2><a href="{Permalink}">{Title}</a></h2>
+						{/block:Title}
+						{Body}
+					{/block:Text}
+
+					{block:Photo}
+						{LinkOpenTag}
+							<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="lead" />
+						{LinkCloseTag}
+						{block:Caption}
+							{Caption}
+						{/block:Caption}
+					{/block:Photo}
+
+					{block:Photoset}
+						{Photoset-500}
+						{block:Caption}
+							{Caption}
+						{/block:Caption}
+					{/block:Photoset}
+
+					{block:Quote}
+						<blockquote>{Quote}</blockquote>
+						{block:Source}
+							{Source}
+						{/block:Source}
+					{/block:Quote}
+
+					{block:Link}
+						<h2><a href="{URL}" {Target}>{Name}</a> &rarr;</h2>
+						{block:Description}
+							{Description}
+						{/block:Description}
+					{/block:Link}
+
+					{block:Chat}
+						{block:Title}
+							<h2><a href="{Permalink}">{Title}</a></h1>
+						{/block:Title}
+						{block:Lines}
+							<p>{block:Label}<em>{Label}</em>{/block:Label} {Line}</p>
+						{/block:Lines}
+					{/block:Chat}
+
+					{block:Audio}
+						{block:AudioEmbed}
+							{AudioEmbed-500}
+						{/block:AudioEmbed}
+						{block:Caption}
+							{Caption}
+						{/block:Caption}
+					{/block:Audio}
+
+					{block:Video}
+						{Video-500}
+						{block:Caption}
+							{Caption}
+						{/block:Caption}
+					{/block:Video}
+
+					{block:Answer}
+						<h2><em>{Asker}:</em> {Question}</h2>
+						{Answer}
+					{/block:Answer}
+
+					{block:Date}
+						<aside>
+							<p><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">{lang:TimeAgo with NoteCount notes}</a></p>
+							{block:PermalinkPage}
+								{block:IfShowTags}
+									{block:HasTags}
+										<ul>
+											{block:Tags}
+												<li><a href="{TagURL}">#{Tag}</a></li>
+											{/block:Tags}
+										</ul>
+									{/block:HasTags}
+								{/block:IfShowTags}
+								{block:IfShowNotes}
+									{PostNotes-16}
+								{/block:IfShowNotes}
+							{/block:PermalinkPage}
+						</aside>
+					{/block:Date}
+				</article>
+			{/block:Posts}
+		</section>
+		<footer>
+		</footer>
+	</body>
+</html>

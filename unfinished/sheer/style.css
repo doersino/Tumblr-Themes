@@ -1,0 +1,498 @@
+/*     __                             
+      /\ \                            
+  ____\ \ \___      __     __   _ __  
+ /',__\\ \  _ `\  /'__`\ /'__`\/\`'__\
+/\__, `\\ \ \ \ \/\  __//\  __/\ \ \/ 
+\/\____/ \ \_\ \_\ \____\ \____\\ \_\ 
+ \/___/   \/_/\/_/\/____/\/____/ \/_/  
+
+"Sheer" Tumblr Theme by Noah Doersing.
+
+It'd be grand if you'd leave this
+note intact if you modify this theme.
+Thanks and DFTBA!
+
+*/
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	border-bottom: 8px solid #ddd;
+	/später/border: 12px solid #bbb;
+	font-family: "Sorts Mill Goudy", "Times New Roman", Times, serif;
+	font-size: 14pt;
+	line-height: 1.4em;
+}
+::selection {
+	background-color: #7bf;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+header#sitehead {
+	width: 100%;
+	position: fixed;
+	/später/border: 12px solid #bbb;
+	background-color: #fff;
+	border-bottom: 0;
+	font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	z-index: 9000;
+}
+footer {
+	width: 100%;
+	font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	display: inline;
+}
+.prewrapheight {
+	width: 100%;
+	font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	visibility: hidden;
+}
+header#sitehead .left, .prewrapheight .left {
+	float: left;
+	width: 25%;
+}
+header#sitehead .right {
+	float: right;
+	width: 75%
+}
+@media screen and (max-width: 900px) {
+	header#sitehead {
+		position: relative;
+	}
+	.prewrapheight {
+		display: none;
+	}
+	header#sitehead .left, header#sitehead .right {
+		width: 100%;
+	}
+}
+footer .left {
+	float: left;
+	width: 25%;
+}
+footer .right {
+	float: right;
+	width: 25%;
+	text-align: left;
+}
+footer .middle {
+	float: right;
+	width: 50%;
+	text-align: right;
+}
+@media screen and (max-width: 900px) {
+	footer .left {
+		display: none;
+	}
+	footer .right, footer .middle {
+		width: 50%;
+	}
+}
+header#sitehead h1, footer h1, .prewrapheight h1 {
+	text-transform: uppercase;
+	font-size: 1.2em;
+	font-weight: 300;
+	display: inline;
+}
+header#sitehead a:hover, footer a:hover {
+	border-bottom: 1px solid #ddd;
+}
+header#sitehead ul, footer ul {
+	display: inline;
+	padding: 0;
+}
+header#sitehead li, footer li {
+	text-transform: uppercase;
+	font-size: 0.8em;
+	font-weight: 400;
+	display: inline;
+	margin-right: 10px;
+}
+footer li {
+	margin: 0;
+	padding: 0;
+}
+
+article {
+	width: 100%;
+	padding: 60px 0 60px 0;
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+}
+.prewrap {
+	border-bottom: 1px solid #ddd;
+}
+.prewrap, .prewrap2, .prewrapheight {
+	padding: 25px;
+	overflow: hidden;
+}
+.wrap {
+	max-width: 900px;
+	margin: 0 auto;
+}
+article .wrap > * {
+	margin-left: 25% !important;
+}
+article.page {
+	font-size: 1.3333333333em;
+	line-height: 1.4em;
+}
+article.page .wrap > * {
+	margin-left: 0 !important;
+}
+@media screen and (max-width: 900px) {
+	.prewrap, .prewrap2 {
+		padding: 25px 5%;
+	}
+	article .wrap > * {
+		padding-left: 5% !important;
+		padding-right: 5% !important;
+	}
+	article.page {
+		font-size: 1em;
+	}
+	article.page .wrap > * {
+		padding-left: 5% !important;
+		padding-right: 5% !important;
+	}
+}
+
+article h1 {
+	padding: 0 0 20px 0;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 2em;
+	line-height: 1.1em;
+	margin-top: -4px;
+}
+article h2 {
+	padding: 30px 0 10px 0;
+	font-weight: normal;
+	font-size: 1.35em;
+	line-height: 1.2em;
+}
+article p {
+	padding: 10px 0 10px 0;
+	/let's make this optional, right?/text-indent: 1.5em;
+}
+article p a {
+	text-decoration: underline;
+}
+article p a:hover {
+	opacity: .7;
+}
+article .meta p a, article .meta2 p a {
+	text-decoration: none;
+}
+article img {
+	width: 75%;
+	margin: 15px auto 10px auto;
+}
+article img.side {
+	margin: 10px 0 0 0 !important;
+	padding: 0;
+	float: left;
+	position: relative;
+	width: 200px;
+}
+@media screen and (max-width: 900px) {
+	article img.side {
+		margin: 10px 0 0 0;
+		float: left;
+		overflow: hidden;
+		position: relative;
+		width: 300px;
+	}
+}
+article pre {
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap !important;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	padding: 10px 0 10px 0;
+}
+article pre code {
+	display: block;
+	background-color: #ddd;
+	color: #000;
+	padding: 15px;
+	border-radius: 5px;
+	font-size: .8em;
+	line-height: 1.1em;
+}
+article p > code {
+	font-size: .9em;
+}
+article code {
+	font-family: Inconsolata, Consolas, Monaco, "Courier New", Courier, monospace;
+}
+article blockquote {
+	margin: 8px 0 8px 1.5em;
+	font-style: italic;
+}
+article blockquote p {
+	border-left: 1px solid #ddd;
+	padding-left: 1em;
+}
+article blockquote p:first-child {
+	padding-top: 2px;
+}
+article blockquote p:last-child {
+	padding-bottom: 2px;
+}
+article blockquote p em {
+	font-style: normal;
+}
+article h3 {
+	font-size: 1.25em;
+	font-style: italic;
+	font-weight: normal;
+	padding: 10px 0 10px 0;
+}
+article h3 em {
+	font-style: normal;
+}
+article.quote .wrap > p {
+	text-indent: 0;
+}
+article.quote h1.shortquote {
+	font-size: 2.5em;
+}
+article.quote h1.mediumquote {
+	font-size: 2em;
+}
+article.quote h1.longquote {
+	font-size: 1.5em;
+}
+article.chat ul.chat {
+	padding-top: 10px;
+}
+article.chat li {
+	list-style-type: none;
+}
+article.video iframe {
+	width: 100%;
+	height: 536px;
+	margin: auto auto 10px auto;
+}
+@media screen and (max-width: 900px) {
+	article.video iframe {
+		width: 500px;
+		height: 277px;
+	}
+}
+article.answer h1:first-letter {
+	text-transform: uppercase;
+}
+article.audio .audiowrap {
+	margin: -10px auto auto auto;
+	padding-bottom: 8px;
+	width: 75%;
+}
+article.audio .audiobox {
+	border: 1px solid #ddd;
+	overflow: hidden;
+	padding-bottom: 15px;
+}
+article.audio .audiobox img {
+	width: 27px;
+	height: 27px;
+	margin: 15px 0 0 15px;
+	float: left;
+}
+article.audio .audiobox embed {
+	margin: 15px 0 0 15px;
+	padding: 0;
+	float: left;
+}
+article.audio .audiobox .audiometa {
+	margin: 15px 0 0 -180px;
+	background-color: #fff;
+	min-width: 200px;
+	padding: 2px 0 0 13px;
+	float: left;
+}
+article.audio .audiobox .audiometa p {
+	padding: 0;
+	text-indent: 0;
+}
+article.photo img {
+	margin: auto auto 10px 25%;
+	max-width: 75%;
+}
+@media screen and (max-width: 900px) {
+	article.photo img {
+		margin: auto auto 10px auto;
+		max-width: 100%;
+		padding-left: 5% !important;
+	}
+}
+article.photo.-bigpicture img {
+	margin: 0 0 10px 0% !important;
+	width: 100% !important;
+}
+article.-bigpicture .wrap > img, article.-bigpicture .wrap > iframe {
+	margin-top: 15px;
+	padding-left: 0 !important;
+}
+article.-bigpicture .wrap .meta2 + * {
+	margin-top: -40px;
+}
+@media screen and (max-width: 900px) {
+	article.-bigpicture .wrap > img, article.-bigpicture .wrap > iframe {
+		margin-top: 0;
+		padding-left: 5% !important;
+	}
+	article.-bigpicture .wrap .meta2 + * {
+		margin-top: 0;
+	}
+}
+article div.twitter-tweet-rendered {
+	padding-left: 0 !important;
+	margin-left: 25% !important;
+}
+@media screen and (max-width: 900px) {
+	article div.twitter-tweet-rendered {
+		margin-left: 5% !important;
+	}
+}
+
+article .meta2 {
+	display: none;
+	padding-bottom: 40px;
+}
+article.-bigpicture .meta {
+	display: none;
+}
+article.-bigpicture .meta2 {
+	display: block;
+}
+@media screen and (max-width: 900px) {
+	article.-bigpicture .meta {
+		display: block;
+	}
+	article.-bigpicture .meta2 {
+		display: none;
+	}
+}
+article .meta, article .meta2 {
+	margin-left: 0% !important;
+	position: absolute;
+	margin-bottom: 10px;
+	height: 0;
+	overflow: visible;
+	opacity: .6;
+	width: 40%;
+}
+article .meta p, article .meta2 p {
+	font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	font-size: .7em;
+	text-indent: 0;
+	line-height: 1.2em;
+}
+article .meta p .middot {
+	display: none;
+	padding: 0 3px;
+}
+@media screen and (max-width: 900px) {
+	article .meta {
+		margin-left: 0%;
+		height: auto;
+		padding-bottom: 15px;
+		margin-top: -15px;
+		width: 100%;
+	}
+	article .meta p br {
+		display: none;
+	}
+	article .meta p .middot {
+		display: inline;
+	}
+}
+article .permameta p.source {
+	text-indent: 0;
+	padding: 0;
+	margin: -3px 0 30px 0;
+	font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	font-size: .8em;
+}
+article .meta.permameta {
+	margin-top: 50px;
+}
+article .permameta ul {
+	padding-left: 0;
+}
+article .permameta li {
+	list-style-type: none;
+	font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	font-size: .8em;
+}
+article .permameta li img{
+	width: 16px;
+	height: 16px;
+	margin: 0 5px -2px 0;
+	padding: 0;
+}
+article .permameta .notes a:hover{
+	border-bottom: 1px solid #ddd;
+}
+article .permameta .notes a.avatarlink:hover {
+	border-bottom: 0;
+}
+article .permameta .tags {
+	padding-bottom: 30px;
+}
+article .permameta .tags li {
+	font-size: .7em;
+	display: inline;
+	background: #ddd url(./arrow.png) no-repeat;
+	padding: 2px 10px 3px 15px;
+	margin-right: 3px;
+	white-space: nowrap;
+	line-height: 2.4em;
+	border-radius: 0 1px 1px 0;
+	text-shadow: #eee 0 1px;
+}
+article .permameta .tags li:hover {
+	opacity: .7;
+}
+
+/* Fixes */
+article.quote h1.shortquote, article.quote h1.mediumquote, article.text h1:first-child, article.link h1:first-child, article.chat h1:first-child {
+	margin-top: 2px;
+}
+article.quote h1.longquote {
+	margin-top: 5px;
+}
+article.photo aside.meta + img {
+	padding-top: 4px; //only !-bigpicture
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
